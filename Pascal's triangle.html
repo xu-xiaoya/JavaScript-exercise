@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pascal's triangle</title>
+<script type = "text/javascript">
+    function print(v) {
+        if (typeof v == "number") {
+            //若数字，包含在一个<span>标签中，以方便CSS控制
+            var w = 40;//<span>标签默认宽度
+            if (n > 30) 
+                w = (n-30) + 40;//<span>标签随着幂数n↑，宽度↑
+            //span是行元素，你需要把它转化成块元素，才能使宽生效，居中生效
+            var s = '<span style = "text-align:center;padding:4px 3px; display:inline-bolck;width:'+w+'px;">' + v + '</span>';
+            document.write(s);
+        } else {//如果不是数字，说明为字符串，直接输出
+            document.write(v);
+        }
+    }
+    //prompt用于显示可提示用户进行输入的对话框
+    var n = prompt("请输入幂数：", 9);//默认值9
+    n = n-0;//将n转换数值类型
+    var t1 = new Date();
+    
+    var a1 = [1,1];
+    var a2 = [1,1];//a2[0]已初始化1！
+    print('<div style = "text-align:center;">');//使div中的内容居中显示
+    print(1);//输出第一行数字
+    print("<br/>");
+    for (var i = 2; i <= n; i++) {
+        print(1);//输出每行第一个数字
+        for (var j = 1; j < i-1; j++) {//每行中间数字
+            a2[j] = a1[j-1]+a1[j];
+            print(a2[j]);
+        }
+        a2[j] = 1;//补上最后一个数组元素的值
+        for (k = 0; k <= j; k++) {
+            a1[k] = a2[k];//将数组a2的值传递到a[1]中
+        }
+        print(1);//输出每行最后一个数字
+        print("<br/>");
+    }
+    print("</div>");
+    var t2 = new Date();
+
+    print("<p style = 'text-align:center;'>耗时为（ms）:" + (t2-t1) + "</p>");
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>break  label</title>
+    <script type = "text/javascript">
+        a: for (var a = 0; a < 10; a++) {
+            b: for (var b = 0; b < 10; b++) {
+                c: for (var c = 0; c < 10; c++) {
+                    if (c == 1) {
+                        alert("c=" + c);
+                        break c;
+                    }
+                    if (b == 1) {
+                        alert("b=" + b);
+                        break b;
+                    }
+                    if (a == 1) {
+                        alert("a=" + a);
+                        break a;
+                    }
+                }
+            } 
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
