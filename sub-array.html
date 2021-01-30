@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sub-Array</title>
+<style>
+ /*绝对定位+margin（明确宽高）：水平居中*/
+div {
+    width:420px;
+    height:146px;
+    position:abosulte;
+    right:0;
+    left:0;
+    top:0;
+    bottom:0;
+    margin:auto;b 
+}
+</style>
+<script type = "text/javascript">
+document.write("<div>");
+var a = [1,2,3,4,5];
+/*
+splice
+①
+第一个参数操作的起始下标位置
+第二个参数删除元素的个数
+第三个及后参数将要插入的元素
+②
+删除和插入操作同时进行，同时在该位置操作
+*/
+a.splice(1,2,"a","b","c");
+document.write('a.splice(1,2,"a","b","c") :'+ a + '<br/>');
+/*
+参数可选，如果不给参数，则不执行操作
+从第三个元素开始执行删除
+*/
+a.splice(2);
+document.write("a.splice(2) :" + a + '<br/>');
+
+/*
+slice
+①两个参数区间，左开右闭
+*/
+var b = [1,2,3,4,5];
+var c = b.slice(2,5);
+document.write("截取3到6个元素 b.slice(2,5) ：" + c + "<br/>");
+//只有一个参数，截到最后
+var d = b.slice(2);
+document.write("截取3到最后的元素 b.slice(2) ：" + d);
+
+document.write("</div>");
+</script>
+</head>
+
+<body>
+</body>
+</html>
