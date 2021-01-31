@@ -1,0 +1,562 @@
+例1、表格综合示例，课程表
+
+注：此例子需要用到几个图片：课程表.gif、边框.jpg、金属背景1.jpg、金属背景2.jpg、金属背景3.jpg，请把这几个文件拷贝到images文件夹中
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>我的第一个网页</title>
+<style>
+body {
+  background: #cff;
+}
+div {
+  margin: auto;
+  background: url(images/边框.jpg);
+  width: 920px;
+  height: 500px;
+  background-size: 100% 100%;
+  padding: 20px;
+}
+table { 
+  margin: auto;
+  background: url(images/金属背景1.jpg);
+  border-spacing: 5px;
+  border-radius: 20px;
+  border: inset 8px;
+/*  border:1px solid #99ccff; */
+  text-align:center;
+  color: #000;
+  width: 850px;
+  box-shadow: 3px 3px 3px black;
+}
+caption {
+  font-family: 微软简隶书,楷体_GB2312;
+  font-size: 40pt;
+  font-weight: bold;;
+  color: #f60;
+  text-shadow: 2px 2px 2px #333;
+}
+th { 
+/*  border:1px inset #99ccff; */
+  color: #336699;
+  background: url(images/金属背景2.jpg);
+  height: 40px;
+  border: outset 2px;
+  border-radius: 10px;
+}
+td { 
+/*  border:1px inset #99ccff; */  
+  color: #000;
+  background: url(images/金属背景3.jpg);
+  background-size: 130px 70px;
+  text-shadow: 1px 1px 1px #fff;
+  border: outset 1px;
+  padding: 5px; 
+  height: 60px; 
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<div>
+<table border="1">
+<caption><img src="images/课程表.gif"></caption>
+<colgroup span="2">
+<colgroup span="5" style="width:130px">
+  <tr>
+    <th colspan="2"></th>
+    <th>星期一</th>
+    <th>星期二</th>
+    <th>星期三</th>
+    <th>星期四</th>
+    <th>星期五</th>
+  </tr>
+  <tr>
+    <th rowspan="2">上午</th>
+    <th>第1-2节</th>
+    <td></td>
+    <td>电子电路</td>
+    <td>大学英语</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>第3-4节</th>
+    <td>中华文化原典</td>
+    <td>大学体育</td>
+    <td>C++语言程序设计</td>
+    <td>高等数学</td>
+    <td>大学英语</td>
+  </tr>
+  <tr>
+    <th rowspan="2">下午</th>
+    <th>第5-6节</th>
+    <td>C++语言程序设计</td>
+    <td>高等数学</td>
+    <td>电子电路实验</td>
+    <td>大学物理</td>
+    <td>大学心理教育</td>
+  </tr>
+  <tr>
+    <th>第7-8节</th>
+    <td>大学物理</td>
+    <td></td>
+    <td>电子电路实验</td>
+    <td>电子电路</td>
+    <td>中国近代史</td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
+
+
+例2、菜单
+
+取消项目符号 list-style-type: none;
+让li彼此水平相连 float: left;
+取消下划线 text-decoration:none; 
+将链接转为块级元素 display: block;
+设定菜单每项的宽度 width: 100px;
+设定菜单的边距 padding: 5px;
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>菜单</title>
+<style>
+.nav {
+  list-style-type:none; /* 取消项目符号 */
+}
+.nav li {
+  float: left; /* 让li彼此水平相连 */
+}
+.nav a {
+  border: white 1px solid;
+  background: purple;
+  display: block;   
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;  /* 取消下划线 */
+  color: white; 
+  font-weight: bold;
+}
+.nav a:hover {
+  color: red; 
+}
+</style>
+</head>
+<body>
+<ul class="nav">
+  <li><a href="#">网站首页</a></li>
+  <li><a href="#">校园新闻</a></li>
+  <li><a href="#">学校概况</a></li>
+  <li><a href="#">专业介绍</a></li>
+  <li><a href="#">学生活动</a></li>
+</ul>
+</body>
+</html>
+
+
+例3、按钮菜单
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>菜单</title>
+<style>
+.nav {
+  list-style-type:none; /* 取消项目符号 */
+}
+.nav a{
+  display: block;   
+  width: 100px;
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+  text-decoration: none; 
+  background: linear-gradient(to bottom, #fff, #69c);
+  border: 1px solid #9ab;
+  border-radius: 15px;
+  box-shadow: inset 0 1px 0 0 #fff;
+  color: #036;
+  text-shadow: 1px 1px 1px #fff;
+  width: 100px; 
+  font-size: 12pt;
+  font-family:'微软雅黑';  
+}
+/*<a>有四个伪类，link，visited（已访问链接样式）,
+hover（鼠标覆盖链接样式），active（被单击样式）*/
+.nav a:hover {
+  background: linear-gradient(to bottom, #fff, #9cf);
+  border: 1px solid #cde;
+  color: #c33;
+  /*光标类型，pointer为手指*/
+  cursor: pointer; 
+}
+</style>
+</head>
+<body>
+<ul class="nav">
+  <li><a href="#">网站首页</a></li>
+  <li><a href="#">校园新闻</a></li>
+  <li><a href="#">学校概况</a></li>
+  <li><a href="#">专业介绍</a></li>
+  <li><a href="#">学生活动</a></li>
+</ul>
+</body>
+</html>
+
+
+例4、下拉菜单
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>课程表</title>
+<style>
+  #navBar {
+
+  }
+  #navBar ul {
+    padding: 0;
+    list-style: none;
+    background: #eee;
+  }
+  #navBar ul > li {
+    float: left;
+    width: 120px;
+  }
+  #navBar li > a {
+   
+  }
+  #navBar ul ul {
+    display: none;
+  }
+  #navBar ul ul li {
+    float: none;
+  }
+  #navBar li:hover > ul {
+    display: block;
+  }
+</style>
+</head>
+<body>
+  <h2>下拉菜单示例</h2>
+  <nav id="navBar">
+    <ul>
+      <li><a href="">菜单一</a>
+        <ul>
+          <li><a href="">菜单1 —— 1</a></li>
+          <li><a href="">菜单1 —— 2</a></li>
+          <li><a href="">菜单1 —— 3</a></li>
+        </ul>
+      </li>
+      <li><a href="">菜单二</a>
+        <ul>
+          <li><a href="">菜单2 —— 1</a></li>
+          <li><a href="">菜单2 —— 2</a></li>
+          <li><a href="">菜单2 —— 3</a></li>
+          <li><a href="">菜单2 —— 4</a></li>
+        </ul>
+      </li>
+      <li><a href="">菜单三</a>
+        <ul>
+          <li><a href="">菜单3 —— 1</a></li>
+          <li><a href="">菜单3 —— 2</a></li>
+          <li><a href="">菜单3 —— 3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
+
+
+例5、网页布局
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>无标题文档</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#container {
+  width: 600px;
+  margin: 0 auto;
+  border:1px solid gray;
+}
+#header {
+  padding:0.5em;
+  height: 40px;
+  color:white;
+  background-color:gray;
+}
+#main {
+  height: 300px;
+}
+#left {
+  width: 150px;
+  height: 300px;
+  float: left;
+  border-right:1px solid gray;
+}
+#right {
+  width: 150px;
+  height: 300px;
+  float: right;
+  border-left:1px solid gray;
+}
+#content {
+  height: 300px;
+}
+#footer {
+  padding:0.5em;
+  color:white;
+  background-color:gray;
+  clear: both;
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="header"><h1>W3School.com.cn</h1></div>
+  <div id="main">
+    <div id="left"><p>111</p></div>
+    <div id="right"><p>222</p></div>
+    <div id="content"><p>333</p></div>
+  </div>
+//footer元素一般用于法律声明
+  <div id="footer">Copyright &copy; 2019 Lei. All Rights Reserved</div>
+</div>
+</body>
+</html>
+
+
+例6、HTML5网页布局
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+<body>
+<header>
+<h1>City Gallery</h1>
+</header>
+<nav>
+London<br>
+Paris<br>
+Tokyo<br>
+</nav>
+<section>
+<h1>London</h1>
+<p>
+London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.
+</p>
+<p>
+Standing on the River Thames, London has been a major settlement for two millennia,
+its history going back to its founding by the Romans, who named it Londinium.
+</p>
+</section>
+<footer>
+Copyright W3Schools.com
+</footer>
+</body>
+</html>
+
+
+例7、表单示例
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>表单示例</title> 
+<style> 
+#form {
+  margin: auto;
+  border: 1px solid #999; 
+  background: #fffff8;
+  font-size: 10.5pt;
+  width: 500px;
+  padding: 5px;
+}
+div {
+  margin: 12px 0;
+}
+div.submit  {
+  margin-left: 150px;
+}
+#caption { 
+  font-size: 14pt;
+  color: #36c; 
+  text-align: center;
+  font-weight: bold;
+}
+label.field {
+  display: block;
+  float: left;
+  width: 120px;
+  text-align: left;
+  margin-left: 20px;
+}
+label.required {
+  font-weight: bold;
+}
+input {
+  font-size: 10.5pt;
+}
+</style>  
+</head>  
+<body> 
+<!--
+  form的特性action：提交后对数据的处理、method：发送服务器的方式、name（id）
+  post：将数据隐藏在HTTP头中
+-->
+<form action="form_action.asp" method="post" name="form1">
+<div id="form">
+<div id="caption">用 户 注 册</div>
+<div>
+  <!--每一个表单控件使用一个新的<label>元素
+    for：特性的值应该与对应表单控件的name/id特性值相同-->
+  <label class="required field" for="user">用户名：</label>
+  <!--单行文本输入控件.特性值为“text”，
+    name：必要特性，提供向服务器发送的“名称/值”对中的名称部分，值为用户输入-->
+  <input type="text" name="user" autofocus required>
+  <!--autofocus:当页面打开时自动对焦该控件 
+    required：提交时，如果元素中内容为空白不允许提交，同时在浏览器中会弹出提示文字。
+  -->
+</div>
+<div>
+  <label class="required field" for="password1">密码：</label>
+  <input type="password" name="password1">
+</div>
+<div>
+  <label class="required field" for="password2">重复密码：</label>
+  <input type="password" name="password2">
+</div>
+<div>
+  <label class="field">性别：</label>
+  <input type="radio" name="sex" value="男"><label>男</label>
+  <input type="radio" name="sex" value="女"><label>女</label>
+</div>
+<div>
+  <label class="field" for="birthday">出生日期：</label>
+  <input type="date" name="birthday">
+</div>
+<div>
+  <label class="field" for="age">年龄：</label>
+  <input type="number" name="age" value="20" min="18" max="30">
+</div>
+<div>
+  <label class="field">所在地：</label>
+  <label>省份</label>
+    <select name="province" style="width:80px;">
+      <option value="0">请选择</option>
+      <option value="江西">江西</option>
+      <option value="广东">广东</option>
+      <option value="湖北">湖北</option>
+      <option value="湖南">湖南</option>
+      <option value="四川">四川</option>
+    </select>
+  <label>城市</label>  
+    <select name="city" style="width:80px;">
+      <option>请选择</option>
+    </select>
+  </td>
+</div>
+<div>
+  <label class="field" for="phone">手机号码：</label>
+  <!--placeholder：示例值-->
+  <input type="tel" name="phone" pattern = "13\d{9}" placeholder="格式：13×××××××××">
+</div>
+<div>
+  <label class="field" for="email">E-mail：</label>
+  <input type="email" name="email">
+</div>
+<!--fieldset：将表单内的元素分组
+legend：标记定义标题
+-->
+<fieldset style="border: 1px solid #ccc;">
+  <legend>其他信息资料</legend>
+  <div>
+    <label class="field">兴趣爱好：</label>
+    <!--type="checkbox"复选框-->
+    <!--加上属性checked="checked"： 表示默认选中-->
+    <input type="checkbox" name="interest" value="唱歌"><label>唱歌</label>
+    <input type="checkbox" name="interest" value="游戏"><label>玩游戏</label>
+    <input type="checkbox" name="interest" value="电影"><label>看电影</label>
+    <input type="checkbox" name="interest" value="围棋"><label>围棋</label>
+    <input type="checkbox" name="interest" value="桥牌"><label>桥牌</label>
+  </div>
+  <div>
+    <label class="field" for="mycolor">喜欢的颜色：</label>
+    <input type="color" name="mycolor">
+  </div>
+  <div>
+    <label class="field" for="eng">英语水平：</label>
+    很差<input type="range" name = "eng" value="50" min="0" max="100" step = "10">很好
+  </div>
+  <div>
+    <label class="field" for="homepage">个人主页：</label>
+    <input type="url" list="url_list" name="homepage" size="36">
+    <datalist id="url_list">
+      <option label="W3school" value="http://www.w3school.com.cn" />
+      <option label="Google" value="http://www.google.com" />
+      <option label="runoob" value="https://www.runoob.com" />
+    </datalist>
+  </div>
+  <div>
+    <label class="field" for="myfile">文件：</label>
+    <input type="file" name="myfile">
+  </div>
+  <div>
+    <!--textarea id=" "多行文本-->
+    <label class="field" for="summary">自我简介：</label>
+    <textarea id="summary" rows="4" cols="40"></textarea>
+  </div>
+</fieldset>
+<div class="submit">
+  <input type="submit" value="提 交" style="width:80px;">
+  <input type="reset" value="重 填" style="width:80px;">
+</div>
+</div>
+</form>
+<br>
+<div id="info"></div>
+</body> 
+</html>
