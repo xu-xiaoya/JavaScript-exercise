@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>filter</title>
+<style>
+ /*绝对定位+margin（明确宽高）：水平居中*/
+div {
+    width:200px;
+    height:20px;
+    position:abosulte;
+    right:0;
+    left:0;
+    top:0;
+    bottom:0;
+    margin:auto; 
+}
+</style>
+<script type = "text/javascript" src = "filter.js"></script>
+<script type = "text/javascript" src = "filter_string.js"></script>
+<script type = "text/javascript" src = "filter_range.js"></script>
+<script type = "text/javascript">
+document.write('<div>');
+    Filter_prime();
+
+    filter_string();
+
+    filter_range();
+document.write("</div>");
+</script>
+
+</head>
+
+<body>
+</body>
+</html>
