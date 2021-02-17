@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>center template</title>
+</head>
+
+<body>
+<input type = "button" value="Button"/> 
+<!--this总是指向引发该事件的对象-->
+<script language = "javascript" type = "text/javascript">
+var button = document.getElementsByTagName("input")[0];
+var o = {};
+o.f = function() {      //不再指向对象o，而是button
+    if (this == o) alert("this = o");
+    if (this == window) alert("this = windows");
+    if (this == button) alert("this = button");
+} 
+button.onclick = o.f;
+</script>
+
+</body>
+</html>
