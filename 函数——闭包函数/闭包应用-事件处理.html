@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件处理-闭包的应用</title>
+
+<style>
+   p {
+       text-align: center;
+   }
+</style>
+</head>
+
+<body>
+<script>
+/*o表示调用对象的实例，m表示该对象的事件处理方法 */
+function f(o,m) {               //事件处理封装函数
+    //返回闭包函数，作为一个DOM元素的事件处理器
+    return function(e) {
+        e = e||window.event;    //获取事件处理对象
+        return o[m](e,this);    //返回一个函数调用，在该函数中把对象与事件方法进行绑定
+    }
+}
+
+function g(id) {            //封装事件处理器函数，已实现在页面初始化事件中触发
+    return function() {     //返回事件处理器函数
+        var e = document.getElementsByTagName(id);
+        if (e) {            //判断是否存在指定对象集合
+            for (var i in e) {
+                //调用关联处理器，把对象与方法捆绑到事件属性中
+                e[i].onclick = f(g, "click");       //鼠标单击事件
+                e[i].onmouseover = f(g, "over");    //鼠标经过事件
+                e[i].onmouseout = f(g, "out");      //鼠标移开事件
+            }
+        }
+    }
+}
+
+/*为事件处理封装函数定义额外的事件处理方法*/
+g.click = function(event, element) {            //鼠标单击事件：元素背景色为红色
+    element.style.backgroundColor = "red";
+}
+g.over = function(event, element) {             //鼠标经过事件：元素背景色为蓝色
+    element.style.backgroundColor = "blue";     
+}
+g.out = function(event, element) {              //鼠标移开事件：元素背景色为透明
+    element.style.backgroundColor = "transparent";
+}
+
+window.onload = g("p");//页面初始化事件中绑定事件处理函数
+</script>
+
+<p>p1</p>
+<p>p2</p>
+<p>p3</p>
+</body>
+</html>
