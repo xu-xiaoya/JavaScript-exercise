@@ -6,3 +6,5 @@ function F(x,y) {
 var f = new F(1,2);
 alert(F.toString());//返回函数源代码
 alert(f.toString());//返回“[object Object]”
+
+//返回本地字符串toLocaleString
