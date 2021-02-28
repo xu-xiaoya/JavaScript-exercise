@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>alert</title>
+<style type = "text/css">
+/*设计对话框在窗口中央显示*/
+#alert_box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 100px;
+    display: none;
+}
+/*设计对话框外框样式，并固定宽度和高度*/
+#alert_box dl {
+    position: absolute;
+    left: -200px;
+    top: -100px;
+    width: 400px;
+    height: 100px;
+    border: solid 1px #999;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+/*设计对话框标题栏样式*/
+#alert_box dt {
+    background-color: #ccc;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 15px;
+}
+/*设计对话框内容框基本样式*/
+#alert_box dd {
+    padding: 6px;
+    margin: 0;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+<script>
+window.alert = function(title,info) {//重写window对象的alert
+    var box = document.getElementById("alert_box");
+    var html = '<dl><dt>' + title + '</dt><dd>' + info + '</dd></dl>';
+    if (box) {//如果窗口中已经存在提示对话框，则直接显示内容
+        box.innerHTML = html;
+        box.style.display = "block";
+    } else {//如果窗口中不存在提示对话框， 则创建对话框，并显示内容
+        var div = document.createElement("div");
+        div.id = "alert_box";
+        div.style.display = "block";
+        document.body.appendChild(div);
+        div.innerHTML = html;
+    }
+}
+alert("重写alert方法","这仅是一个设计思路，还可以进一步设计");
+</script>
+</body>
+</html>
