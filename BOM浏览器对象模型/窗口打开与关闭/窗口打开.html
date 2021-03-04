@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>打开窗口</title>
+<script type = "text/javascript">
+/*
+window.open(url, name, features):  open()方法可以查找一个已经存在或者新建的浏览器窗口。
+
+url：可选参数，在窗口中要显示网页的网址或路径。如果省略这个参数，或者它的值是空字符串，那么窗口就不显示任何文档。
+name：可选参数，被打开窗口的名称。
+    1.该名称由字母、数字和下划线字符组成。
+    2.如果name已存在窗口，返回对指定窗口的引用，features被忽略
+features：可选参数，设置窗口参数，各参数用逗号隔开。
+*/
+
+//opener：保存打开它的原始窗口对象
+myWindow = window.open();       //打开新窗口
+myWindow.document.write("<h1>这是新打开的窗口</h1>");    //在新窗口输出提示信息
+myWindow.focus();       //让原窗口获取焦点
+myWindow.opener.document.write("<h1>这是原来窗口</h1>");    //在原窗口输出提示信息
+alert(myWinow.opener == window)   //检测window.opener属性值
+
+//w.close;关闭指定窗口
+//window.close;关闭自身窗口
+//window.closed
+</script>
+</head>
+
+<body>
+</body>
+</html>
