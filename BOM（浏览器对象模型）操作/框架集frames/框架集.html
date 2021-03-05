@@ -15,3 +15,14 @@
 </frameset>
 <noframes><body></body></noframes>
 </html>
+<!--
+在应用有frameset或者iframe时，parent是父窗口，top是最顶级父窗口(有的窗口中套了好几层frameset),self是当前窗口
+opener : 是用open方法打开当前窗口的那个窗口
+
+window.self 功能：是对当前窗口自身的引用。它和window属性是等价的。注：window、self、window.self是等价的。
+window.top  功能：返回顶层窗口，即浏览器窗口。注：如果窗口本身就是顶层窗口，top属性返回的是对自身的引用。
+window.parent 功能：返回父窗口。注：如果窗口本身是顶层窗口，parent属性返回的是对自身的引用。
+在框架网页中，一般父窗口就是顶层窗口，但如果框架中还有框架，父窗口和顶层窗口就不一定相同了。
+frames[] window对象集合，代表窗口中的各个框架（如果存在）
+ 
+-->

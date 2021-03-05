@@ -4,7 +4,18 @@
 <meta charset="UTF-8">
 
 <script type = "text/javascript">
-document.write("<h1>middle</h1>");
+document.write("<h1>middle.html</h1>");
+document.write("在最高层窗口中访问本框架的方式：<br>");
+document.write("window.frames[1]  window.frames['middle']<br>");
+document.write("top.frames[1] top.frames['middle']<br>");
+document.write("frames[1] frames['middle']<br>");
+
+window.onload = function() {
+    document.body.onclick = f;
+}
+var f = function() {
+    parent.frames[0].left();//调用第一个框架的函数left()
+}
 </script>
 
 </head>

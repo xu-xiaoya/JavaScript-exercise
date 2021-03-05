@@ -4,11 +4,30 @@
 <meta charset="UTF-8">
 
 <script type = "text/javascript">
-document.write("<h1>left</h1>");
+
+
+document.write("<h1>left.html</h1>");
+document.write("在最高层窗口中访问本框架的方式：<br>");
+document.write("window.frames[0]  window.frames['left']<br>");
+document.write("top.frames[0] top.frames['left']<br>");
+document.write("frames[0] frames['left']<br>");
+
+
+function left() {
+    alert("left.html");
+}
 </script>
 
 </head>
 
 <body>
+<script>
+    window.onload = function() {
+    document.body.onclick = f;
+}
+var f = function() {//改变第三个框架文档的背景色为红色
+    parent.frames[2].document.body.style.backgroundColor = "red";
+}
+</script>
 </body>
 </html>
