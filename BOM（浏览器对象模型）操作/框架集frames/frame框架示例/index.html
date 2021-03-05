@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WEB</title>    
+</head>
+    <!-- rows ：横向分割页面-->
+<frameset rows = "15%,*">
+    <frame src = "top.html" />
+    <!--cols ：纵向分割页面
+    “15%”表示该框架区域占全部浏览器页面区域的15%；
+    “15”表示该区域横向宽度为15像素；
+    “*”表示该区域占用余下页面空间。-->
+    <frameset cols = "15%,*">
+        <!--noresize : 设置框架大小是否能手动调节。-->
+        <!--frameborder ：是否设置框架边框-->
+        <frame src = "left.html" noresize frameborder = "0">
+        <frame src = "homework1.html" name = "myframe" frameborder = "0">
+    </frameset>
+</frameset>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<style>
+ul {
+    list-style-type: none;
+}
+li {
+    margin: 5px;
+}
+</style>
+</head>  
+
+<body> 
+<h1>申请表</h1>
+<form action="form_action.asp" method="post" name="form1">
+
+    <ul>
+        <li>
+            <label class="required field" for="user">姓名：</label>
+            <input type="text" name="user" autofocus required>
+        </li>
+        <li>
+            <label class="field">教育程度：</label>
+            <input type="checkbox" name="education" value="硕士" checked="checked"><label>硕士</label>
+            <input type="checkbox" name="education" value="博士"><label>博士</label>
+        </li>
+        <li>
+            <label class="field">性别：</label>
+            <input type="radio" name="sex" value="男"><label>男</label>
+            <input type="radio" name="sex" value="女"><label>女</label>
+        </li>
+        <li>
+            <label class="field" >月薪：</label>
+            <input type="text" name="money" size="5px">  
+        </li>
+        <li>
+            <label class="field" for="summary">附注：</label>
+            <textarea id="summary" rows="4" cols="40">请在这里键入附注</textarea>        
+        </li>
+        <li>
+            <input type="submit" value="提 交" style="width:80px;">
+            <input type="reset" value="重 值" style="width:80px;">
+        </li>
+    </ul>
+
+</form>
+<br>
+<div id="info"></div>
+</body> 
+</html>
