@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setTimeout</title>
+</head>
+
+<body>
+<p>text</p>
+<h1>TEXT</h1>
+<script type = "text/javascript">
+//当鼠标移过每个子元素，会延迟半秒钟弹出一个提示对话框，显示当前元素的名称
+    var o = document.getElementsByTagName("body")[0].childNodes;
+    for (var i = 0; i < o.length; i++) {
+        o[i].onmouseover = function(i) {
+            return function() {
+                f(o[i]);
+            }
+        }(i);
+    }
+
+    function f(o) {
+        var out = setTimeout(function(){
+            alert(o.tagName);
+        },500);
+    }
+</script>
+</body>
+</html>

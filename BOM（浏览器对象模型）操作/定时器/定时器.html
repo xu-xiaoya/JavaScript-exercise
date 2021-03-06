@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setTimeout</title>
+</head>
+
+<body>
+<p>text</p>
+<script type = "text/javascript">
+//当鼠标移过段落文本，会延迟半秒钟弹出一个提示对话框，显示当前元素的名称
+    var p = document.getElementsByTagName("p")[0];
+    p.onmouseover = function(i) {
+        setTimeout(function(){
+            alert(p.tagName);
+        },500)
+    }
+</script>
+</body>
+</html>
