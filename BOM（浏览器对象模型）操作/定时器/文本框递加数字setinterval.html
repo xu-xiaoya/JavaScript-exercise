@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>递加数字二</title>
+</head>
+
+<body>
+<input type = "text"/>
+<script>
+var t = document.getElementsByTagName("input")[0];
+var i = 1;
+var out = setInterval(f,1000);
+function f() {
+    t.value = i++;
+    if (i > 10) {
+        clearTimeout(out);
+        alert("十秒钟已到");
+    }
+}
+</script>
+</body>
+</html>

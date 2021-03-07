@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>递加数字一</title>
+</head>
+
+<body>
+<input type = "text"/>
+<script>
+var t = document.getElementsByTagName("input")[0];
+var i = 1;
+function f() {
+    var out = setTimeout(
+    function() {
+        t.value = i++;
+        f();
+    },1000);
+    if (i > 10) {
+        clearTimeout(out);
+        alert("十秒钟已到");
+    }
+}
+f();
+</script>
+</body>
+</html>
