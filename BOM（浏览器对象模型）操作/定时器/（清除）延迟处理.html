@@ -19,8 +19,16 @@
         }(i);
     }
 
+    //为每个元素注册鼠标移出时清除延迟函数
+    o[i].onmouseout = function(i) {
+        return function() {
+            clearTimeout(o[i].out);
+        }
+    }(i);
+
     function f(o) {
-        var out = setTimeout(function(){
+        //为防止混淆多个注册的延迟处理函数，分别把不同元素的延迟处理函数的引用存储在该元素对象的out属性中
+        o.out = setTimeout(function(){
             alert(o.tagName);
         },500);
     }
