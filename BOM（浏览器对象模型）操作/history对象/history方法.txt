@@ -1,0 +1,13 @@
+history对象存储最近访问的、有限条目的URL信息，为了安全和隐私，禁止js脚本直接操作这些访问信息。
+
+history.length()    |读取列表中URL的个数
+history.back()      |返回到前一个URL
+history.forward()   |前进到下一个URL
+history.go()        |根据参数决定可访问的URL①
+
+
+①             ↗ 正：在历史列表中向前移动。history.go(-1)=history.back()    
+    ↗   整数    history.fo(0):  刷新页面
+参数          ↘ 负：在历史列表中向后移动。history.go(1)=history.forward()
+    ↘   
+         字符串：从浏览历史中检索包含该字符串的URL，并访问第一个检索到的URL
