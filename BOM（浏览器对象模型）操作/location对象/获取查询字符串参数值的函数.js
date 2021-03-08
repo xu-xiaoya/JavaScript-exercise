@@ -12,3 +12,12 @@ var queryString = function() {
     } 
     return o;//返回对象
 }
+
+//调用函数
+var f1 = queryString();
+for (var i in f1) {
+    alert(i + "=" + f1[i]);
+}
+
+
+//tip:如果url中没有查询字符串信息，可以手动补加"?id=123&name=location"，再次刷新页面即可查询
