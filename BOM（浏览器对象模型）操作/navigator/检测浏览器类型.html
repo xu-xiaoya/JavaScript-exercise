@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>检测浏览器类型</title>
+
+<script type = "text/javascript">
+var ua = navigator.userAgent.toLowerCase();
+var info = {
+    ie: /msie/.test(ua) && !/opera/.test(ua),   //匹配IE浏览器
+    op: /opera/.test(ua),                       //匹配opera浏览器
+    sa: /version.*safari/.test(ua),             //匹配Safari浏览器
+    ch: /chrome/.test(ua),                      //匹配Chrome浏览器
+    ff: /gecko/.test(ua) && !/webkit/.test(ua)  //匹配Firefox浏览器
+};
+
+(info.ie) && alert("IE浏览器");
+(info.op) && alert("Opera浏览器");
+(info.sa) && alert("Safari浏览器");
+(info.ch) && alert("Chrome浏览器");
+(info.ff) && alert("Firefox浏览器");
+</script>
+
+</head>
+
+<body>
+</body>
+</html>
