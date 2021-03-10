@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>name访问元素</title>
+</head>
+<body>
+    <img name = "img" src = "bg.jpg"/>
+    <form name = "form" method = "post" action = "http://www.mysite.cn/navi/"></form>
+    
+    <script>
+    //法一
+    //对于Image、Form和Applet对象对应的HTML标签中设置了name属性，才可使用name属性值引用这些对象
+    alert(document.img.src);
+    alert(document.form.action);
+    
+    //法二
+    //元素对象定义有name，就可以使用文本下标引用对应的元素对象
+    alert(document.images["img"].src);
+    alert(document.forms["form"].action);
+    </script>
+</body>
+</html>

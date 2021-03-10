@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文档对象集合访问元素</title>
+</head>
+<body>
+    <!--
+        通用方法，不需要name
+    -->
+    <img  src = "bg.jpg"/>
+    <form name = "form" method = "post" action = "http://www.mysite.cn/navi/"></form>
+    <script>
+    alert(document.images[0].src);          //返回图像地址
+    alert(document.forms[0].action);        //返回表单提交的路径
+    </script>
+</body>
+</html>

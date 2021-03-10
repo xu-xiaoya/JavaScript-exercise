@@ -1,0 +1,4 @@
+document.anchors        |返回文档中所有Anchor对象，即所有带name特性的<a>标签
+document.forms          |返回文档中所有所有Form对象，与document.getELementsByTagName("form")得到的结果相同
+document.images         |返回文档中所有Image对象，与document.getELementsByTagName("img")得到的结果相同
+document.links          |返回文档中所有Area和Link对象，即所有带href特性的<a>标签
