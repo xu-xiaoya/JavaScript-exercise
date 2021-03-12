@@ -8,7 +8,7 @@ DOM规定：
 每个节点有一个nodeType属性，用于表明节点的类型。
 
 常量名                               |      节点类型        |nodeType返回值
-Node.ELEMENT_NODE (1)                |元素节点 Elenment     | 1
+Node.ELEMENT_NODE (1)                |元素节点 Elenment     | 1     ***常用
 Node.ATTRIBUTE_NODE (2)              |属性节点 Attr         | 2
 Node.TEXT_NODE (3)                   |文本节点 Text         | 3
 Node.CDATA_SECTION_NODE (4)          |基于XML文档CDATA区域  | 4
