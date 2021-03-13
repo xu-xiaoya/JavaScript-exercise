@@ -1,0 +1,4 @@
+getElementById          |   返回指定id属性值的元素
+getElementById          |   返回指定名称（属性值name）的元素节点，多用于表单，获取单/复选框
+getElementsByTagName    |   返回指定标签名称的元素节点
+    （返回HTMLCollection对象，与nodeList对象相似，用方括号和item()方法获取，用length获取对象中元素的数量）

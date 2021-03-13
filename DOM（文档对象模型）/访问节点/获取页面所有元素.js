@@ -1,0 +1,1 @@
+var allElements = document.getElementsByTagName("*");   //*表示全部元素

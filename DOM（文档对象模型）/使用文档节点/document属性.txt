@@ -1,0 +1,7 @@
+title           |设置或返回<title>包含的文本信息
+lastModified    |返回文档最后被修改的日期和时间
+URL             |返回当前文档的完整URL,即地址栏中显示的地址信息
+domain          |返回当前文档的域名
+referrer        |返回链接到当前页面的那个页面的URL
+
+tip：HTMLDocumentt是Document的子类，document对象是HTMLDocument的实例，表示html文档
