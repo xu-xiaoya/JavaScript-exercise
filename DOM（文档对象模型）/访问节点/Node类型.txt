@@ -1,7 +1,10 @@
-ownerDocument： 返回当前节点的根元素（document对象）
-parentNode：    返回当前节点的父节点
+ownerDocument： 返回当前节点的根元素（document对象）    node.ownerDocument = document.documentElement
+
+parentNode：    返回当前节点的父节点            返回的一定是个元素节点，只有元素节点才有子节点
 childNode：     返回当前节点的所有子节点的节点列表
-firstChild：    返回当前节点的首个子节点
-lastChild：     返回当前节点的最后一个子节点
+
+firstChild：    返回当前节点的首个子节点        node.childNode[0] = node.firstChild;
+lastChild：     返回当前节点的最后一个子节点    node.childNode[node.childNode.length-1] = node.lastChild;
+
 nextSibling：   返回当前节点之后相邻的同级节点
 previousSibling：返回当前节点之前相邻的同级节点    

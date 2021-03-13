@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<span class = "red">body</span>
+
+<script>
+    //对body元素引用，方法一：
+    var b = document.documentElement.lastChild;
+    //对body元素引用，方法二：
+    b = document.documentElement.firstChild.nextSibling.nextSibling;
+
+    //获取span元素包含的文本：
+    var text = document.documentElement.lastChild.firstChild.firstChild.nodeValue;
+</script>
+
+</body>
+</html>

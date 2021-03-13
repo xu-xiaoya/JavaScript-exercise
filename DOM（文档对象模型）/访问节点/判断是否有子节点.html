@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+
+<ul id = "myList">
+	<li>Coffee</li>
+	<li>Tea</li>
+</ul>
+<p id = "demo">单击按钮是否有任何子节点列表元素</p>
+<button onclick = "myFunction()">点我</button>
+
+<script>
+function myFunction() {
+	var lst = document.getElementById("myList");
+	var x = document.getElementById("demo");
+	//法一：hasChildNodes()：推荐
+	x.innerHTML = lst.hasChildNodes();
+	//法二：childNodes.length 判断长度是否为0
+	if (x.childNodes.length == 0) {
+		alert("第二个元素无子节点");
+	} else {
+		alert("第二个元素有子节点");
+	}
+}
+</script>
+
+</body>
+</html>
