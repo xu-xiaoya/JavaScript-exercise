@@ -1,0 +1,24 @@
+<!doctype html>
+<html>  
+<head>
+<title>访问节点</title>
+<meta charset="utf-8">
+</head>
+<body>
+<ul>
+    <li>D表示文档，DOM的结构基础</li>
+    <li>O表示对象，DOM的对象基础</li>
+    <li>M表示模型，DOM的方法基础</li>
+</ul>
+<script>
+    /*
+    每个childNodes保存着一个nodeList（类数组对象，基于DOM结构动态执行查询的结果，故不能静态方式处理）
+    两种访问方法：方括号、item()
+    */
+    var tag = document.getElementsByTagName("ul")[0];   //获取列表元素
+    var a = tag.childNodes;     //获取列表元素包含的所有节点
+    console.log(a[0].nodeType);     //第一个节点类型，返回值为3，显示为文本节点
+    console.log(a.item(1).innerHTML);       //显示第二个节点包含的文本
+    console.log(a.length);      //包含子节点个数，nodeList长度
+</script>
+</body>
