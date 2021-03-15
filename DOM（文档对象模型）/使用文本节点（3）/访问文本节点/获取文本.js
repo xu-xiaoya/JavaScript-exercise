@@ -8,4 +8,3 @@ alert(text);
 //标准用法如下：
 var text = div.firstChild.nodeValue;
 alert(text);
-

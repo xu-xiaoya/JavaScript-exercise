@@ -1,0 +1,9 @@
+ 方 法          |   说 明
+
+appendChild     |结尾添加新的子节点
+cloneNode       |复制节点
+hasChildNodes   |判断当前节点是否拥有子节点
+insertBefore    |在指定的位置前插入新的子节点
+normalize       |合并相邻的Text节点并删除空的Text节点
+removeChild     |删除（并返回）当前节点的指定子节点
+replaceChild    |用新节点替换一个子节点

@@ -1,0 +1,8 @@
+ 方 法                          |   说 明
+
+appendData(string)                  |将string追加到文本节点的尾部
+deleteData(start, length)           |从start下标位置开始删除length个字符
+insertData(start, string)           |在指定的位置插入string
+replaceData(start, length, string)  |用string替换从start开始length个字符
+splitText(offset)                   |在offset下标位置把一个Text节点分割成两个节点
+substringData(start, length)        |从start下标开始提取length个字符
