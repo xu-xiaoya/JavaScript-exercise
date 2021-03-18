@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+.red {
+    color:red;
+}
+.blue {
+    color:blue;
+}
+</style>
+</head>
+<body>
+<div class="content">
+    <ul>
+        <li>首页</li>
+        <li class="red">财经</li>
+        <li class="blue">娱乐</li>
+        <li class="red">时尚</li>
+        <li class="blue">互联网</li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+/*
+querySelector()：返回一个元素对象
+querySelectorAll()：返回的一个元素集合，比getElementByTagName性能高
+根据CSS选择器规范，便捷定位文档中指定元素。
+*/
+var l1 = document.querySelector(".content ul li");  //获得第一个li元素
+document.write(l1.textContent);
+var lis =  document.querySelectorAll(".content ul li");     //获得所有li元素
+ //获得所有class=red的li元素
+var red =  document.querySelectorAll("li.red");    
+var red1 =  document.getElementsByClassName("red");
+</script>
+
+</body>
+</html>
