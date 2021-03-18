@@ -1,0 +1,10 @@
+selectNode(refNode)
+//selectNode方法：commonAncestorContainer、endContainer、startContainer都等于传入节点的父节点
+
+
+selectNodeContents(refNode)
+//selectNodeContents方法：commonAncestorContainer、endContainer、startContainer都等于传入的节点
+//startOffset始终为0，endOffset为子节点数量
+
+
+//refNode为DOM节点
