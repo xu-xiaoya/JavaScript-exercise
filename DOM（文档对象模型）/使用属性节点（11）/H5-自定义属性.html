@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<!--H5新特性，自定义属性前要求添加data-前缀，可以通过dataset属性访问自定义属性-->
+<div id="box" data-myid="12345" data-myname="zhangsan"  data-mypass="zhang123">自定义数据属性</div>
+
+<script>
+var div = document.getElementById("box");
+//访问自定义属性
+var id = div.dataset.myid;
+var name = div.dataset.myname;
+var pass = div.dataset.mypass;
+//重置自定义属性
+div.dataset.myid = "54321";
+div.dataset.myname = "lisi";
+div.dataset.mypass = "lisi543";
+//检测自定义属性
+if (div.dataset.myname) {
+	alert(div.dataset.myname);
+}
+</script>
+
+</body>
+</html>
