@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+function createrange() {
+    /*
+    collapse(toStart):折叠范围（范围中没有选择任何内容）
+    toStart:布尔值，true：把结束点设置为开始点值，false：把开始点设置为结束点值
+    以开始点折叠范围，则结束点与开始点重合，结束点偏移值与开始点偏移值相同。
+    */
+    var range1 = document.createRange();
+    var main= document.getElementById("main");
+	var h1 = document.getElementsByTagName("h1")[0];
+	var h2 = document.getElementsByTagName("h2")[0];
+    range1.setStartBefore(h1);
+    range1.setEndAfter(h2);
+	console.log("折叠前内容：" + range1.toString());
+	range1.collapse(true);
+	console.log("折叠后内容：" + range1.toString());
+	console.log("是否折叠？" + range1.collapsed);
+	console.log("startContainer：" + range1.startContainer.tagName);
+	console.log("startOffset：" + range1.startOffset);	
+	console.log("endContainer：" + range1.endContainer.tagName);
+	console.log("endOffset：" + range1.endOffset);		
+}
+</script>
+</head>
+
+<body>
+<section id="wrap">
+    <article id="main">
+        <h1>游子吟</h1>
+        <h2>孟郊</h2>
+        <p>慈母手中线，游子身上衣。临行密密缝，意恐迟迟归。谁言寸草心，报得三春晖。</p>
+    </article>
+    <header>
+        <input type="button" value="折叠范围" onclick="createrange()" />
+    </header>
+</section>
+</body>
+</html>
