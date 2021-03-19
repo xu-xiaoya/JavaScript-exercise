@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+#weibo {
+    position: absolute;
+    display: none;
+}
+</style>
+</head>
+<body>
+<p id="txt">不要冒然评价我，你只知道我的名字，却不知道我的故事。你只是听闻我做了什么，却不知道我经历过什么。</p>
+<div id="weibo"><img src="images/weibo.jpg"></div>
+<script type="text/javascript">
+window.onload=function(){
+   function selectText(){
+	   if(document.selection){//兼容ie
+		   return document.selection.createRange().text;
+	   } else{//标准的获取方法
+		   return window.getSelection().toString();
+	   }
+   }
+	var text = document.getElementById('txt');
+	var weibo = document.getElementById('weibo');
+	text.onmouseup = function(ev){
+		var ev =ev||window.event;
+		var top = ev.clientY;
+		var left = ev.clientX;
+		if(selectText().length>1){
+			console.log(selectText())
+				weibo.style.display = 'block';
+				weibo.style.left =left+'px';
+				weibo.style.top = top +'px';			
+			/*
+			setTimeout(function(){
+				weibo.style.display = 'block';
+				weibo.style.left =left+'px';
+				weibo.style.top = top +'px';
+			},100)
+			*/
+		} else{
+			weibo.style.display = 'none';
+		}
+	};
+	text.onclick =function(ev){
+		var ev =ev||window.event;
+		ev.cancelBubble = true;
+	}
+	document.onclick = function(){
+		weibo.style.display = 'none';
+	};
+	//点击分享的实现
+	weibo.onclick = function(){
+		window.location.href='http://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A63342%2Fjs2%2Fpicscroll.html&type=icon&language=zh_cn&searchPic=true&style=simple'+selectText()+window.location.href;
+	}
+}
+</script>
+</body>
+</html>
