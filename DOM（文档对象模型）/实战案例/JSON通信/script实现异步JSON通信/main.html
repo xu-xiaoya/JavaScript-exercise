@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>异步信息交互</title>
+<script type="text/javascript">
+function callback(info) {//回调函数
+    var temp = "";
+    for (var i in info) {   //遍历参数对象
+        if (typeof info[i] != "object") {   //如果属性值不是对象则直接显示
+            temp += i + " = \"" + info[i] + "\"<br />";
+        } else if ((typeof info[i] == "object") && (info[i].constructor == Array)) {    //如果为数组
+            temp += "<br />" + i + " = " + "<br /><br />";
+            var a = info[i];
+            for (var j = 0; j < a.length; j++) {    //遍历每个数组元素对象
+                var o = a[j];
+                for (var e in o) {
+                    temp += "&nbsp;&nbsp;&nbsp;&nbsp;" + e + " = \"" + o[e] + "\"<br />";
+                }
+                temp +=  "<br />";
+            }
+        }
+    }
+    var div  = document.getElementById("test"); //获取页面中的div元素
+    div.innerHTML = temp;   //把服务器端响应信息输入到div元素中显示
+}
+function request(url) {     //请求函数
+    if (!document.script) {
+        document.script = document.createElement("script");
+        document.script.setAttribute("type", "text/javascript");
+        document.script.setAttribute("src", url);
+        document.body.appendChild(document.script);
+    } else {
+        document.script.setAttribute("src", url);
+    }
+}
+window.onload = function() {    //页面初始化
+    var b = document.getElementsByTagName("input")[0];
+    b.onclick = function() {
+        var url = "server.js"
+        request(url);
+    }
+}
+</script>
+
+<body>
+<h1>客户端信息提交页面</h1>
+<input name="submit" type="button" id="submit" value="向服务器发出请求" />
+<div id="test"></div>
+</body>
+</html>

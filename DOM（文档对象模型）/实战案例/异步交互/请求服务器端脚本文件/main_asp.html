@@ -2,30 +2,39 @@
 <head>
 <title>异步信息交互</title>
 <script type="text/javascript"> 
-function callback(info) {
+function callback(info)
+{
     alert(info);
 }
-function request(url) {
-    if (!document.script) {
+function request(url)
+{
+    if( ! document.script)
+    {
         document.script = document.createElement("script");
         document.script.setAttribute("type", "text/javascript");
         document.script.setAttribute("src", url);
         document.body.appendChild(document.script);
-    } else {
+    }
+    else
+    {
         document.script.setAttribute("src", url);
     }
+
 }
-window.onload = function() {
+
+window.onload = function()
+{
     var b = document.getElementsByTagName("input")[0];
-    b.onclick = function() {
-        var url = "server.asp?callback=callback"    //把script元素的src属性设置为请求服务器端脚本文件
-        request(url);   //请求ASP文件
+    b.onclick = function(){
+        var url = "server.asp?callback=callback"
+        request(url);
     }   
 }
+
+
 </script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
 <h1>客户端信息提交页面</h1>
 <input name="submit" type="button" id="submit" value="向服务器发出请求" />
