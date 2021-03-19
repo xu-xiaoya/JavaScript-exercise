@@ -1,0 +1,21 @@
+caption     对<caption>元素的指针
+tFoot       对<tfoot>元素的指针
+tHead       对<tHead>元素的指针
+
+cells[]     获取包含表格中所有单元格的数组
+rows[]      获取包含表格中所有行的数组
+tBodies[]   获取包含表格中所有tbody的数组
+
+createCaption()      为表格创建一个 caption 元素。
+createTFoot()        在表格中创建一个空的 tFoot 元素。
+createTHead()        在表格中创建一个空的 tHead 元素。
+
+deleteCaption()      从表格删除 caption 元素以及其内容。
+deleteRow()          从表格删除一行。
+deleteTFoot()        从表格删除 tFoot 元素及其内容。
+deleteTHead()        从表格删除 tHead 元素及其内容。
+deleteCell(pos)      删除指定位置的的单元格
+
+insertRow()          在表格中插入一个新行。
+insertCell(pos)      向cells集合中指定位置插入一个单元格
+insertRow(pos)       向rows集合中指定位置插入一行
