@@ -1,0 +1,13 @@
+HTML集合是用于存放DOM节点引用的类数组对象。
+
+document.getElementByName()         
+document.getElementByClassName()
+document.getElementByTagName()
+
+document.images             页面中所有的<img>元素
+document.links              所有的<a>元素
+document.forms              所有表单
+document.forms[0].elements  页面中第一个表单的所有字段
+
+这些方法和属性返回HTMLCollection对象，类数组列表，不是数组（因为没数组的方法），
+但是提供：length属性
