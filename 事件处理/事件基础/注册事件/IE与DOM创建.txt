@@ -9,5 +9,5 @@ element.addEventListener(String type, Function listener, boolean useCapture);
 
 IE用法：
 element.attachEvent(etype, eventName);
-etype       |事件类型
+etype       |事件类型 ，要加上on  例onclick而非click
 eventName   |事件处理函数
