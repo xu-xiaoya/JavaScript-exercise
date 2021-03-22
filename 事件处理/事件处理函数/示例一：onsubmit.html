@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<!--为form元素的onsubmit事件属性定义字符串脚本-->
+<!--当文本框输入的值为空时，定义事件处理函数返回值为false，返回值若为false，则强制表单禁止提交数据-->
+<form id="form1" name="form1" method="post" action="http://www.mysite.cn/" onsubmit="if(this.elements[0].value.length==0) return false;">
+	姓名：<input id="user" name="user" type="text" />
+    <input type="submit" name="btn" id="btn" value="提交" />
+</form>
+</body> 
+</html>
