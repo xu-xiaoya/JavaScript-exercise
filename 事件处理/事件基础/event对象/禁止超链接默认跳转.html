@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<a href="https://www.baidu.com/" id="a1">禁止超链接跳转</a>
+
+<script>
+document.getElementById('a1').onclick = function(e) {
+    e = e || window.event;      //兼容事件对象
+    var target = e.target || e.srcElement;  //兼容事件目标元素
+    if (target.nodeName !== 'A') {  //仅对超链接起作用
+    	return;
+    }
+    if (typeof e.preventDefault === 'function') {   //兼容DOM模型
+		e.preventDefault();     //通知浏览器不要执行与事件关联的默认动作
+		e.stopPropagation();    //终止事件在传播过程的捕获、目标处理或冒泡阶段进一步传播
+    } else {
+		e.returnValue = false;  //禁止默认行为
+		e.cancelBubble = true;  //禁止冒泡
+    }
+};
+</script>
+
+</body>
+</html>
