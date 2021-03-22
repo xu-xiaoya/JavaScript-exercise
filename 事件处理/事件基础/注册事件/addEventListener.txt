@@ -1,0 +1,13 @@
+DOM用法：
+element.addEventListener(String type, Function listener, boolean useCapture);
+参数说明：
+·type       |注册事件的类型名。例onclick对应事件类型click
+·listener   |监听函数，即事件处理函数。
+·useCapture |true：事件处理函数在事件传播的捕获阶段触发  
+             false：事件处理函数在冒泡阶段触发
+
+
+IE用法：
+element.attachEvent(etype, eventName);
+etype       |事件类型
+eventName   |事件处理函数
