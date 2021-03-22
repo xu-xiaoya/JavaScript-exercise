@@ -5,14 +5,27 @@
 </head>
 <body>
 <p id="p1">为对象注册多个事件</p>
+
 <script>
 var p1 = document.getElementById("p1");			// 捕获段落元素的句柄
-p1.addEventListener("mouseover", function() {
-    this.style.background = "blue";
-}, true)									// 为段落元素注册第1个事件处理函数
-p1.addEventListener("mouseout", function() {
-    this.style.background = 'red';
-}, true);										// 为段落元素注册第2个事件处理函数
+//DOM方法：addEventListener
+if (addEventListener) {
+    p1.addEventListener("mouseover", function() {
+        this.style.background = "blue";
+    }, true)	// 为段落元素注册第1个事件处理函数
+    p1.addEventListener("mouseout", function() {
+        this.style.background = 'red';
+    }, true);   // 为段落元素注册第2个事件处理函数
+//IE方法：attachEvent
+} else {
+    p1.attachEvent("onmouseover", function() {
+        p1.style.background = 'blue';
+    });										//注册mouseover事件
+    p1.attachEvent("onmouseout", function() {
+        p1.style.background = 'red';        //注册mouseout事件
+    });	
+}
 </script> 
+
 </body>
 </html>
