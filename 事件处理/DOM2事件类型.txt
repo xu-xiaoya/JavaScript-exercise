@@ -1,0 +1,24 @@
+ul事件
+load 页面或资源（img、js、css等）加载完毕以后触发
+unload 用户从一个页面切换到另一个页面触发
+resize 窗口大小发生变化时触发（重复执行，损耗性能）
+scroll 页面上下滚动的时候触发
+abort  图像加载时中断
+error  加载文档或图像时发生某个错误
+
+焦点事件
+blur 元素失去焦点时触发
+focus 元素获得焦点时触发
+focusin 同focus一样，但是支持冒泡
+focusout 同blur一样，失去焦点时触发（支持低版本IE）
+
+鼠标事件
+click 点击时触发 （click = mousedown + mouseup）
+dblclick 双击时触发 （PS：jquery不支持双击事件）
+mousedown 鼠标按下
+mouseup 鼠标松开
+mousemove 鼠标在目标元素上移动时触发（重复执行，损耗性能）
+mouseover 鼠标进入目标元素（或者目标元素的子元素）
+mouseout 鼠标离开目标元素（或者目标元素的子元素）
+mouseenter 鼠标进入目标元素 （只能进入目标元素才触发，进入目标元素的子元素不会触发）
+mouseleave 鼠标离开目标元素（只能离开目标元素才触发，离开目标元素的子元素不会触）
