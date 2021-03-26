@@ -1,10 +1,10 @@
-clientX     |以浏览器窗口左上方为原点，定位x轴坐标
-clientY     |以浏览器窗口左上方为原点，定位y轴坐标
-offsetX     |以当前事件的目标对象左上顶点为原点，定位x轴坐标
-offsetY     |以当前事件的目标对象左上顶点为原点，定位y轴坐标
-pageX       |以document对象左上顶点为原点，定位x轴坐标
-pageY       |以document对象左上顶点为原点，定位y轴坐标
+clientX     |以浏览器窗口左上方为原点，定位x轴坐标                                 不兼容Safari
+clientY     |以浏览器窗口左上方为原点，定位y轴坐标                                 不兼容Safari
+offsetX     |以当前事件的目标对象左上顶点为原点，定位x轴坐标                       不适用Mozilla浏览器
+offsetY     |以当前事件的目标对象左上顶点为原点，定位y轴坐标                       不适用Mozilla浏览器
+pageX       |以document对象左上顶点为原点，定位x轴坐标                            不兼容IE
+pageY       |以document对象左上顶点为原点，定位y轴坐标                            不兼容IE
 screenX     |以计算机屏幕左上顶点为原点，定位x轴坐标
 screenY     |以计算机屏幕左上顶点为原点，定位y轴坐标
-layerX      |以最近的绝对定位的父元素（若无则document）左上顶点为原点，定位x轴坐标
-layerY      |以最近的绝对定位的父元素（若无则document）左上顶点为原点，定位y轴坐标
+layerX      |以最近的绝对定位的父元素（若无则document）左上顶点为原点，定位x轴坐标  Safari和Mozilla
+layerY      |以最近的绝对定位的父元素（若无则document）左上顶点为原点，定位y轴坐标  Safari和Mozilla
