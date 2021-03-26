@@ -1,0 +1,7 @@
+属性	            |IE事件模型	                                                            |DOM事件模型
+keyCode(keypress)	|返回所有字符键的正确值，区分大写状态（65-90）和小写状态（97-122）	       |功能键返回正确值，而【Shift】、【Ctrl】、【Alt】、【PrintScreen】、【ScrollLock】无返回值，其他所有键值都返回0
+keyCode(keydown)	|返回左右键值（除【PrintScreen】键），字母键都以大写状态显示键值（65-90）  |返回左右键值（除【PrintScreen】键），字母键都以大写状态显示键值（65-90）
+keyCode(keyup)	    |返回左右键值（除【PrintScreen】键），字母键都以大写状态显示键值（65-90）  |返回左右键值（除【PrintScreen】键），字母键都以大写状态显示键值（65-90）
+charCode(keypress)	|不支持该属性	                                                        |返回字符键，区分大写状态（65-90）和小写状态（97-122），而【Shift】、【Ctrl】、【Alt】、【PrintScreen】、【ScrollLock】无返回值，其他所有键值都返回0
+charCode(keydown)	|不支持该属性	                                                        |所有键值为0
+charCode(keyup)	    |不支持该属性	                                                        |所有键值为0

@@ -1,0 +1,11 @@
+键位	                |码值
+0~9（数字键）	        |48~57
+A~Z（字母键）	        |65~90
+Backspace（退格键）	    |8
+Tab（制表键）	        |9
+Enter（回车键）	        |13
+Space（空格键）	        |32
+Left arrow（左箭头）    |37
+Top arrow（上箭头）	    |38
+Right arrow（右箭头）   |39
+Down arrow（下箭头）	|40

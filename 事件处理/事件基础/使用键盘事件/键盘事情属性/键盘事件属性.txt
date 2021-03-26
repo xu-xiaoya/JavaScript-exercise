@@ -1,0 +1,9 @@
+属性	    |说明
+keyCode	    |该属性包含键盘中对应键位的键值
+charCode	|该属性包含键盘中对应键位的Unicode编码，仅DOM支持
+target	    |发生事件的节点（包含元素），仅DOM支持
+srcElement	|发生事件的元素，仅IE支持
+shiftKey	|是否按下【Shift】键，如果按下返回true，否则为false
+crtlKey	    |是否按下【Ctrl】键，如果按下返回true，否则为false
+altKey	    |是否按下【Alt】键，如果按下返回true，否则为false
+metaKey	    |是否按下【Meta】键，如果按下返回true，否则为false，仅DOM支持

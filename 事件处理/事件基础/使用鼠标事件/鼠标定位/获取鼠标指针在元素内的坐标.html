@@ -17,7 +17,7 @@ div1.onmousemove = function(event) {
     if (event.offsetX || event.offsetY) {
         t.value = event.offsetX + " " + event.offsetY;
     } else if (event.layerX || event.layerY) {      //兼容Mozilla浏览器
-        t.value = (event.layerX-1) + " " +(event.layerY-1);
+        t.value = (event.layerX-1) + " " +(event.layerY-1); //考虑到元素之间的距离所造成的误差，减去1个或几个像素的偏移量
     }
 }
 </script>
