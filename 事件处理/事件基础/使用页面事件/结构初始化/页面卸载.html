@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+
+<script type="text/javascript">
+/*第一种方法unload：
+
+window.onunload = f;
+function f() {
+    alert("888");
+}
+*/
+window.onbeforeunload = function(e) {
+     return "你的数据还没有保存呢！";
+}
+</script>
+
+</head>
+<body>
+</body>
+</html>
