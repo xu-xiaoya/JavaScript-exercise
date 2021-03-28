@@ -1,0 +1,4 @@
+change：表单元素的值发生变化时触发
+
+↗input/textarea :失去焦点且value值改变
+↘select         :value（选项）值改变
