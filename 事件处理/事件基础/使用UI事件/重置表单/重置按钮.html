@@ -1,0 +1,12 @@
+<form id = "form1" name = "form1" method = "POST" action="">
+    <input type = "text" name = "t" id = "t" />
+    <input name = "" type = "reset">
+</form>
+
+<script>
+var t = document.getElementsByTagName("input")[0];
+var f = document.getElementsByTagName("form")[0];
+f.onreset = function(e) {
+    alert(t.value);
+}
+</script>
