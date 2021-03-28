@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<script>
+var EventUtil = {
+//注册事件，参数包括：注册对象、事件类型和事件处理函数
+    addHandler: function(element, type, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = handler;
+        }
+    },
+//获取按钮信息
+    getButton: function(event) {
+        if (document.implementation.hasFeature("MouseEvents", "2.0")) { //如果标准事件直接返回
+            return event.button;
+        } else {    //如果IE事件，对返回值进行简单处理
+            switch(event.button) {
+                case 0:
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                    return 0;
+                case 2:
+                case 6:
+                    return 2;
+                case 4: return 1;
+            }
+        }
+    },
+//获取键盘键值编码
+    getCharCode: function(event) {
+        if (typeof event.charCode == "number") {
+            return event.charCode;
+        } else {
+            return event.keyCode;
+        }
+    },
+//获取剪切板文本
+    getClipboardText: function(event) {
+        var clipboardData =  (event.clipboardData || window.clipboardData);
+        return clipboardData.getData("text");
+    },
+//获取事件对象
+    getEvent: function(event) {
+        return event ? event : window.event;
+    },
+//获取相关的目标对象
+    getRelatedTarget: function(event) {
+        if (event.relatedTarget) {
+            return event.relatedTarget;
+        } else if (event.toElement) {
+            return event.toElement;
+        } else if (event.fromElement) {
+            return event.fromElement;
+        } else {
+            return null;
+        }
+    },
+//获取当前响应对象
+    getTarget: function(event) {
+        return event.target || event.srcElement;
+    },
+//获取滚轮信息    
+    getWheelDelta: function(event) {
+        if (event.wheelDelta){
+            return (client.engine.opera && client.engine.opera < 9.5 ? -event.wheelDelta : event.wheelDelta);
+        } else {
+            return -event.detail * 40;
+        }
+    },
+//阻止默认事件发生，参数为事件对象    
+    preventDefault: function(event){
+        if (event.preventDefault){
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+//移除已注册或已绑定的事件
+    removeHandler: function(element, type, handler) {
+        if (element.removeEventListener){
+            element.removeEventListener(type, handler, false);
+        } else if (element.detachEvent){
+            element.detachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = null;
+        }
+    },
+//设置剪贴板文本  
+    setClipboardText: function(event, value) {
+        if (event.clipboardData){
+            event.clipboardData.setData("text/plain", value);
+        } else if (window.clipboardData){
+            window.clipboardData.setData("text", value);
+        }
+    },
+//阻止事件流传播，参数为事件对象    
+    stopPropagation: function(event ){
+        if (event.stopPropagation){
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    }
+
+};
+</script>
+</head>
+<body>
+
+<button id="btn">添加列表项目</button>
+<ul id="list">
+    <li>列表项目1</li>
+    <li>列表项目2</li>
+    <li>列表项目3</li>
+</ul>
+
+<script>
+var ul=document.getElementById("list");
+var lis=ul.getElementsByTagName("li");
+for (var i = 0; i < lis.length; i++) {
+	EventUtil.addHandler(lis[i], 'click', function(e) {
+		var e = EventUtil.getEvent(e);
+		var target = EventUtil.getTarget(e);
+		alert(e.target.innerHTML);
+	});
+}
+var i = 4;
+var btn=document.getElementById("btn");
+
+EventUtil.addHandler(btn, 'click', function(e) {
+	var li = document.createElement("li");
+	li.innerHTML = "列表项目" + i++;
+	ul.appendChild(li);
+});
+</script>
+
+</body>
+</html>
