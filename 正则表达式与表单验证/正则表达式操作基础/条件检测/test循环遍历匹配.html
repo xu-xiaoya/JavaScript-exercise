@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+
+<script>
+var s = "javascript";	// 测试使用的字符串直接量
+var r = /\w/g; 			// 匹配模式
+while (r.test(s)) { 		// 循环执行匹配验证，如果返回true，则连续执行验证
+    alert(RegExp.lastMatch +  "\n" +  r.lastIndex);
+ 	// 利用静态属性和实例属性，显示当前匹配信息
+}
+</script>
+
+</body>
+</html>
