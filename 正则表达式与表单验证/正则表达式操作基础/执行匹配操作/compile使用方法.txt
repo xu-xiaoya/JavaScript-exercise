@@ -1,0 +1,5 @@
+compile() ：用于在脚本执行过程中改变或重新编译正则表达式 
+
+compile(regexp, modifier)
+regexp：正则表达式
+modifier：定义匹配的类型，如“g”，“i”， “gi”等

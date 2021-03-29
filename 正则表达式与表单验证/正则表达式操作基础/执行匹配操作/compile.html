@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+
+<script>
+var str1 = "Every man in the world! Every woman on earth!";
+patt = /man/g;  //全局搜索“man”
+str2 = str1.replace(patt, "person");//使用person替换全部的man
+document.write(str2 +"<br />");
+
+//调用compile方法，改写正则表达式，用“person”替换“woman”或者“man”
+patt = /(wo)?man/g;
+patt.compile(patt);
+str2 = str1.replace(patt, " person");
+document.write(str2);
+</script>
+
+</body>
+</html>
