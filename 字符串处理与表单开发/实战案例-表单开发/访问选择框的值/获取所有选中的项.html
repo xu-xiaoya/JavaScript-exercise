@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<form id="myform" action="#">
+    <label for="color">选择你喜欢的颜色：</label>
+    <select name="clolr" size="5"  multiple id="clolr">
+        <option value="red">红</option>
+        <option value="orange">橙</option>
+        <option value="yellow">黄</option>
+        <option value="green">绿</option>
+        <option value="blue">蓝</option>
+    </select>
+    <button id="btn" name="btn">确定</button> 
+</form>
+<script>
+function getSelectedOptions(selectbox){
+	var result = new Array();
+	var option = null;
+	for (var i=0, len=selectbox.options.length; i < len; i++){
+		option = selectbox.options[i];
+		if (option.selected){
+			result.push(option);
+		}
+	}
+	return result;            
+}		
+var form = document.getElementById("myform");
+var clolr = form.elements["clolr"];  
+var btn = form.elements["btn"];
+btn.onclick = function(){
+	var selectedOptions = getSelectedOptions(clolr);
+	var message = "";
+	for (var i=0, len=selectedOptions.length; i < len; i++){
+		message += selectedOptions[i].index + " text: " + selectedOptions[i].text + " value: " + selectedOptions[i].value + "\n";
+	}
+	console.log(message);
+	return false;
+}
+</script>
+</body>
+</html>

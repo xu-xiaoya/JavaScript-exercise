@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<form id="myform"  method="post" action="#">
+    <select name="grade" id="grade">
+        <option value="1">初级</option>
+        <option value="2">中级</option>
+        <option value="3">高级</option>
+    </select><br><br>
+    <button id="btn" name="btn" type="button" >添加选项</button>
+</form>
+
+<script>
+var form = document.getElementById("myform");
+var grade = form.elements["grade"];                       
+var btn = form.elements["btn"]; 
+//DOM方法
+btn.onclick = function() {
+	var newOption = document.createElement("option");
+	newOption.appendChild(document.createTextNode("特级"));
+	newOption.setAttribute("value", "4");
+	grade.appendChild(newOption);
+	this.disabled = true;
+	this.innerHTML = "添加完毕";
+	return false;
+}
+//Option构造函数创建option实例
+btn.onclick = function(){
+	var newOption = new Option("特级","4");
+	grade.appendChild(newOption);
+	this.disabled = true;
+	this.innerHTML = "添加完毕";
+	return false;
+}
+//选择框的add方法
+/*第一个参数：添加的新选项
+第二个参数：位于新选项之后的选项，若要在列表最后添加一个选项，应将第二个参数设置为null
+*/
+btn.onclick = function(){
+	var newOption = new Option("特级","4");
+	grade.add(newOption,undefined);
+	this.disabled = true;
+	this.innerHTML = "添加完毕";
+	return false;
+}
+</script>
+</body>
+</html>

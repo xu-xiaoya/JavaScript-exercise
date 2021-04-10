@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<form id="myform"  method="post" action="#">
+    <select name="grade" id="grade">
+        <option value="1">1级</option>
+        <option value="2">2级</option>
+        <option value="3">3级</option>
+        <option value="4">4级</option>
+        <option value="5">5级</option>
+        <option value="6">6级</option>        
+    </select>
+</form>
+
+<script>
+var form = document.getElementById("myform");
+var grade = form.elements["grade"];                       
+
+grade.onchange = function(){
+	var option = grade.options[grade.selectedIndex];
+	grade.insertBefore(option, grade.options[option.index-1]);
+}      
+</script>
+</body>
+</html>

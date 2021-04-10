@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<form id="myform"  method="post" action="#">
+    <select name="grade1" id="grade1">
+        <option value="1">初级</option>
+        <option value="2">中级</option>
+        <option value="3">高级</option>
+    </select><br><br>
+    <select name="grade2" id="grade2"></select>
+</form>
+
+<script>
+var form = document.getElementById("myform");
+var grade1 = form.elements["grade1"];                       
+var grade2 = form.elements["grade2"]; 
+grade1.onchange = function(){//将一个选项框中的选项直接移到另一个选择框中国
+	grade2.appendChild(grade1.options[grade1.selectedIndex]);
+}    
+</script>
+</body>
+</html>

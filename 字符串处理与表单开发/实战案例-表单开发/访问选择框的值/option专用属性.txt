@@ -1,0 +1,5 @@
+index       |返回当前选项在options集合中的索引
+label       |设置或返回选项的标签
+selected    |布尔值，返回或设置当前选项的selected属性值，表示当前选项是否被选中
+text        |设置或返回选项的文本值
+value       |设置或返回选项的值

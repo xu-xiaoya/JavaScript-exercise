@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<form id="myform"  method="post" action="#">
+    <label>输入电话号码<br>
+        （格式：区号-电话号码-分机）<br>
+        <input type="text" name="tel1"  size="3" maxlength="3" >
+        -
+        <input type="text" name="tel2"  size="8" maxlength="8" >
+        -
+        <input type="text" name="tel3"  size="3" maxlength="3" >
+    </label>
+    <input type="submit" value="提交表单">
+</form>
+<script>
+var  addHandler = function(element, type, handler){
+	if (element.addEventListener){
+		element.addEventListener(type, handler, false);
+	} else if (element.attachEvent){
+		element.attachEvent("on" + type, handler);
+	} else {
+		element["on" + type] = handler;
+	}
+}
+var  autofocus = function(event){            
+	event = event || window.event;
+	var target = event.target || event.srcElement; 
+	
+	if (target.value.length == target.maxLength){
+		var form = target.form;
+		
+		for (var i=0, len=form.elements.length; i < len; i++) {
+			if (form.elements[i] == target) {
+				if (form.elements[i+1]){
+					form.elements[i+1].focus();
+				}
+				return;
+			}
+		}
+	}
+}
+
+var form = document.getElementById("myform");
+var tel1 = form.elements["tel1"];                       
+var tel2 = form.elements["tel2"]; 
+var tel3 = form.elements["tel3"]; 
+tel1.focus();
+addHandler(tel1, "keyup", autofocus);        
+addHandler(tel2, "keyup", autofocus);        
+addHandler(tel3, "keyup", autofocus);        
+                
+
+</script>
+</body>
+</html>

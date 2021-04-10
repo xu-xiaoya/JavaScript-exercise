@@ -1,0 +1,7 @@
+multiple        |布尔值，设置或返回是否可有多个选项被选中
+selectedIndex   |设置或返回是否可有多个选项被选中
+size            |设置或返回一次显示的选项
+length          |返回选项的数目
+options         |返回包含所有选项的控件集合
+add(option, before) |向控件插入新的option元素，其位置在before参数之前
+remove(index)   |移出给定位置的选项

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<form id="myform"  method="post" action="#">
+    <select name="grade" id="grade">
+        <option value="1">初级</option>
+        <option value="2">中级</option>
+        <option value="3">高级</option>
+        <option label="提示文本" value="">未知</option>
+        <option>不明确</option>
+    </select>
+</form>
+
+<script>
+var form = document.getElementById("myform");
+var grade = form.elements["grade"];  
+grade.onchange = function(){                     
+	var selIndex = grade.selectedIndex;
+	var selOption = grade.options[selIndex];
+	console.log("  index: " +grade.selectedIndex + "\ntext: " + selOption.text + "\nvalue: " + grade.value);            
+}
+</script>
+</body>
+</html>
