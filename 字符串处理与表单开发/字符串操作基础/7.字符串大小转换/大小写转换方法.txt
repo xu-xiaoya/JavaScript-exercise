@@ -1,0 +1,5 @@
+toUpperCase 方法：返回一个字符串，该字符串中的所有字母都被转化为大写字母 。
+
+toLowerCase 方法：返回一个字符串，该字符串中的字母被转换为小写字母。
+
+说明:toUpperCase和toLowerCase 方法对非字母字符不会产生影响。
