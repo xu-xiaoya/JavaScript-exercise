@@ -1,0 +1,13 @@
+属性	        |描述
+acceptCharset	|服务器可接受的字符集。
+action	        |设置或返回表单的 action 属性。
+enctype	        |设置或返回表单用来编码内容的 MIME 类型。
+id	            |设置或返回表单的 id。
+length	        |返回表单中的元素数目。
+method	        |设置或返回将数据发送到服务器的 HTTP 方法。
+name	        |设置或返回表单的名称。
+target	        |设置或返回表单提交结果的 Frame 或 Window 名。
+
+提供两个专用方法：
+reset()：将表单域重置为默认值
+submit()：提交表单

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<form id="myform">
+    <h3>反馈表</h3>
+    <fieldset>
+        <p>姓名: <input class="special" type="text" name="name"></p>
+        <p>性别:
+            <input type="radio"  name="sex" value="0">男
+            <input type="radio"  name="sex" value="1">女 </p>
+        <p>邮箱: <input type="text" name="email"></p>
+        <p>网址：<input type="text" name="web"></p>
+        <p>反馈意见: <textarea name="message" cols="30" rows="10"></textarea> </p>
+        <p class="submit">
+            <button type="submit">提交表单</button>
+        </p>
+    </fieldset>
+</form>
+
+<script>
+//elements集合是一个有序列表，包含表单中的所有字段，每个表单字段在集合中的顺序与他们在表单中顺序相同
+var form = document.getElementById("myform");
+var field1 = form.elements[2];          //通过下标位置找到第三个控件：单选按钮
+var field2 = form.elements["name"];     //通过name找到姓名文本框
+var fieldCount = form.elements.length;  //获取表单字段个数
+alert(field2.value);
+
+
+//若多个表单控件使用一个name（单选按钮），会返回以name命名的NodeList
+var form = document.getElementById("myform");
+var sex = form.elements["sex"];
+var field3 = form.elements[3];  //简写为form[3]
+alert( sex.length);         //返回2
+alert( sex[1] == field3);   //返回true。访问element[3]与sex[1]元素相同
+</script>
+
+</body>
+</html>

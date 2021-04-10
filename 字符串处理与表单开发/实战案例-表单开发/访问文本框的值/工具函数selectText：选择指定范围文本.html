@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<form id="myform"  method="post" action="#')">
+	<textarea rows="5" cols="25">月落乌啼霜满天，江枫渔火对愁眠。（张继《枫桥夜泊》)
+莫愁前路无知己，天下谁人不识君。(高适《别董大》)  </textarea>
+</form>
+
+<script>
+//h5新属性：setSelectionRange，选择部分文本
+function selectText(textbox, startIndex, stopIndex) {
+	if (textbox.setSelectionRange) {
+		textbox.setSelectionRange(startIndex, stopIndex);
+	} else if (textbox.createTextRange){
+		var range = textbox.createTextRange();  //创建一个范围
+		range.collapse(true);   //折叠范围
+		range.moveStart("character", startIndex);   
+		range.moveEnd("character", stopIndex - startIndex);//将范围移动到位
+		range.select();     //选择文本
+	}
+	textbox.focus();
+}
+					
+var form = document.getElementById("myform");
+var field1 = form.elements[0];
+field1.onfocus = function() {
+	selectText(this, 0, 16);
+}
+</script>
+
+</body>
+</html>

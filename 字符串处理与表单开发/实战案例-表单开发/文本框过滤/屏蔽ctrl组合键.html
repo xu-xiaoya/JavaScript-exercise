@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+
+<form id="myform"  method="post" action="#">
+	<input type="text" size="25" maxlength="50" value="123456">
+</form>
+
+<script>
+var form = document.getElementById("myform");
+var field1 = form.elements[0];
+
+field1.onkeypress = function(event){
+	event = event || window.event;
+	if (typeof event.charCode == "number"){
+		var charCode = event.charCode;
+	} else {
+		var charCode = event.keyCode;
+	}	
+
+	if (!/\d/.test(String.fromCharCode(charCode)) && charCode > 9 && !event.ctrlKey){
+		if (event.preventDefault){
+			event.preventDefault();
+		} else {
+			event.returnValue = false;
+		} alert(1)
+	}
+}
+</script>
+
+</body>
+</html>
