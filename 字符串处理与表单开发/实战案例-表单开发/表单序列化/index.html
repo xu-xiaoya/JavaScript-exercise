@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+/*定义一个表单操作单元模板，方便代码管理*/
+var formUtil = {
+    // 获取单选按钮的值，如有没有选的话返回null
+    // elements为radio类的集合的引用
+    getRadioValue: function(elements) {
+        var value = null; // null表示没有选中项
+        if (elements.value != undefined && elements.value != '') {// 非IE浏览器
+            value = elements.value;
+        } else { // IE浏览器
+            for (var i = 0,len = elements.length; i < len; i++) {
+                if (elements[i].checked) {
+                    value = elements[i].value;
+                    break;
+                }
+            }
+        }
+        return value;
+    },
+
+    // 获取多选按钮的值，如有没有选的话返回null
+    // elements为checkbox类型的input集合的引用
+    getCheckboxValue: function(elements) {
+        var arr = new Array();
+        for (var i = 0, len = elements.length; i < len; i++) {
+            if (elements[i].checked) {
+                arr.push(elements[i].value);
+            }
+        }
+        if (arr.length > 0) {
+            return arr.join(',');
+        } else {
+            return null; // null表示没有选中项
+        }
+    },
+
+    // 获取下拉框的值
+    // element为select元素的引用
+    getSelectValue: function(element) {
+        if (element.selectedIndex == -1) {
+            return null; // 没有选中的项时返回null
+        };
+        if (element.multiple) {// 多项选择
+            var arr = new Array(),
+            options = element.options;
+            for (var i = 0,  len = options.length; i < len; i++) {
+                if (options[i].selected) {
+                    arr.push(options[i].value);
+                }
+            }
+            return arr.join(",");
+        } else {// 单项选择
+            return element.options[element.selectedIndex].value;
+        }
+    },
+
+    // 序列化
+    // form为form元素的引用
+    serialize: function(form) {
+        var arr = new Array(),
+        elements = form.elements,
+        checkboxName = null;
+        for (var i = 0,len = elements.length; i < len; i++) {
+            field = elements[i];
+            // 不发送禁用的表单字段
+            if (field.disabled) {
+                continue;
+            }
+            switch (field.type) {
+            // 选择框的处理
+            case "select-one":
+            case "select-multiple":
+                //encodeURIComponent(field.name) 编码处理
+                arr.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(this.getSelectValue(field)));
+                break;
+
+            // 不发送下列类型的表单字段 
+            case undefined:
+            case "button":
+            case "submit":
+            case "reset":
+            case "file":
+                break;
+
+            // 单选、多选和其他类型的表单处理  
+            case "checkbox":
+                if (checkboxName == null) {
+                    checkboxName = field.name;
+                    arr.push(encodeURIComponent(checkboxName) + "=" + encodeURIComponent(this.getCheckboxValue(form.elements[checkboxName])));
+                }
+                break;
+            case "radio":
+                if (!field.checked) {
+                    break;
+                }
+            default:
+                if (field.name.length > 0) {
+                    arr.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+                }
+            }
+        }
+        return arr.join("&");
+    }
+};
+
+var EventUtil = {
+
+    addHandler: function(element, type, handler){
+        if (element.addEventListener){
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent){
+            element.attachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = handler;
+        }
+    },
+    
+    getButton: function(event){
+        if (document.implementation.hasFeature("MouseEvents", "2.0")){
+            return event.button;
+        } else {
+            switch(event.button){
+                case 0:
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                    return 0;
+                case 2:
+                case 6:
+                    return 2;
+                case 4: return 1;
+            }
+        }
+    },
+    
+    getCharCode: function(event){
+        if (typeof event.charCode == "number"){
+            return event.charCode;
+        } else {
+            return event.keyCode;
+        }
+    },
+    
+    getClipboardText: function(event){
+        var clipboardData =  (event.clipboardData || window.clipboardData);
+        return clipboardData.getData("text");
+    },
+    
+    getEvent: function(event){
+        return event ? event : window.event;
+    },
+    
+    getRelatedTarget: function(event){
+        if (event.relatedTarget){
+            return event.relatedTarget;
+        } else if (event.toElement){
+            return event.toElement;
+        } else if (event.fromElement){
+            return event.fromElement;
+        } else {
+            return null;
+        }
+    
+    },
+    
+    getTarget: function(event){
+        return event.target || event.srcElement;
+    },
+    
+    getWheelDelta: function(event){
+        if (event.wheelDelta){
+            return (client.engine.opera && client.engine.opera < 9.5 ? -event.wheelDelta : event.wheelDelta);
+        } else {
+            return -event.detail * 40;
+        }
+    },
+    
+    preventDefault: function(event){
+        if (event.preventDefault){
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+
+    removeHandler: function(element, type, handler){
+        if (element.removeEventListener){
+            element.removeEventListener(type, handler, false);
+        } else if (element.detachEvent){
+            element.detachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = null;
+        }
+    },
+    
+    setClipboardText: function(event, value){
+        if (event.clipboardData){
+            event.clipboardData.setData("text/plain", value);
+        } else if (window.clipboardData){
+            window.clipboardData.setData("text", value);
+        }
+    },
+    
+    stopPropagation: function(event){
+        if (event.stopPropagation){
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    }
+
+};
+</script>
+</head>
+
+<body>
+<form action="test_php.php" id="form1" name="form1" method="post" enctype="multipart/form-data">
+    姓名：
+    <input name="name" type="text" tabindex="1" />
+    <br>
+    性别：
+    <input name="sex" type="radio" value="男"/>
+    男
+    <input name="sex" type="radio" value="女" />
+    女 <br>
+    爱好：
+    <input name="hobby" type="checkbox" value="篮球" />
+    篮球
+    <input name="hobby" type="checkbox" value="足球" />
+    足球
+    <input name="hobby" type="checkbox" value="乒乓球" />
+    乒乓球
+    <input name="hobby" type="checkbox" value="羽毛球" />
+    羽毛球 <br />
+    年级：
+    <select name="class" multiple>
+        <option value="一年级">一年级</option>
+        <option value="二年级">二年级</option>
+        <option value="三年级">三年级</option>
+    </select>
+    <br />
+    其他： <br />
+    <textarea name="other" rows="5" cols="30" tabindex="2"></textarea>
+    <br />
+    <input type="reset" value="重置" />
+    <input type="submit" value="提交" />
+</form>
+<div id="output"></div>
+<script>
+
+
+var form = document.getElementById("form1"),
+output = document.getElementById("output");
+
+// 自定义的提交事件
+EventUtil.addHandler(form, "submit", function(event) {
+    event = EventUtil.getEvent(event);
+    EventUtil.preventDefault(event);
+    var html = "";
+    html += form.elements['name'].value + "<br>";
+    html += formUtil.getRadioValue(form.elements['sex']) + "<br>";
+    html += formUtil.getCheckboxValue(form.elements['hobby']) + "<br>";
+    html += formUtil.getSelectValue(form.elements['class']) + "<br>";
+    html += form.elements['other'].value + "<br>";
+    html += decodeURIComponent(formUtil.serialize(form)) + "<br>";
+    output.innerHTML = html;
+});
+
+</script>
+</body>
+</html>
