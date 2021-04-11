@@ -1,0 +1,5 @@
+bool = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
+
+aCommandName：执行命令的名称
+aShowDefaultUI：布尔值，是否展示用户界面，一般为false
+aValueArgument：部分命令的补充参数，如insertImage命令需要提供图片的URL，默认为null
