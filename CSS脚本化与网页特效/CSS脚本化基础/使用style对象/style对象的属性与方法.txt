@@ -1,0 +1,10 @@
+cssText     |访问HTML标签中style属性的css代码
+length;     |元素定义的css属性的数量
+parentRule  |CSS的CSSRule对象
+
+getPropertyCSSValue(propertyName)       |返回包含给定属性值的CSSValue对象
+getPropertyPriority(propertyName);      |返回指定CSS属性中是否附加了!important命令
+getPropertyValue(propertyName);         |返回给定属性的字符串值
+item(index);                            |返回给定位置的CSS属性名称
+removeProperty(propertyName);           |从样式中删除给定属性
+setProperty(propertyName,value,priority); |给给定属性设置给相应的值，并加上优先权标志

@@ -1,0 +1,7 @@
+CSSStyleSheet类型表示样式表。
+
+styleSheets对象为每一个样式表定义了一个cssRules对象，用来包含指定样式表中所有规则（样式）
+
+为兼容主流浏览器，应先判断浏览器是否支持cssRules对象：
+var cssRules = document.styleSheets[0].cssRules || document.styleSheets[0].rules;
+非IE使用cssRules，IE支持rules对象

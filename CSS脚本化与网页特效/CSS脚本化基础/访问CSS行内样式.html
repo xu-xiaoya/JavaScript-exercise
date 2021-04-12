@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id = "box">box</div>
+    
+    <script>
+        /*
+        style对象包含了通过HTML的style属性设置的所有css样式信息
+        因此元素的style属性只能访问行内样式，不能访问样式表中的样式信息
+        */
+        var box = document.getElementById("box");
+        /*
+        含有连字符的多词属性（）在js中删除这些连字符，以驼峰命名法重新命名css的脚本属性名称（）
+        */
+        box.style.border-right-color = "red";//错误用法
+
+        box.style.borderRightColor = "red";
+        box.style.borderRightStyle = "solid";
+
+    </script>
+</body>  
+</html>

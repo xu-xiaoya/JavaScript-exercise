@@ -1,0 +1,23 @@
+<!--getPropertyValue(propertyName);         |返回给定属性的字符串值
+propertyName表示CSS属性名，而不是CSS脚本属性名，复合名应用连字符进行连接
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id = "box" style = "width: 300px; height: 200px; border: solid 1px red;">盒子</div>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            if (box.style.getPropertyValue("width")) {
+                var width = box.style.getPropertyValue("width");
+            } else {//早期IE
+                var width = box.style.width;
+            }
+            box.innerHTML = "盒子宽度" + width;
+        }
+    </script>
+</body>
+</html>

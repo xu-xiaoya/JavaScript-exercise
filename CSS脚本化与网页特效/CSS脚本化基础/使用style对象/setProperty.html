@@ -1,0 +1,30 @@
+<!--
+    setProperty(propertyName,value,priority)
+    propertyName：设置CSS属性名
+    value：设置CSS属性值，包含属性值的单位
+    priority：表示是否设置!important优先级命令，如果不设置可以空字符串表示
+-->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script> 
+window.onload = function() {
+    var box = document.getElementById("box");			//获取<div id="box">
+    box.style.setProperty("width","400px","");			//定义盒子宽度为400像素
+    box.style.setProperty("height","200px","");			//定义盒子宽度为200像素
+}
+/*
+早期：IE
+window.onload = function(){ 
+	    var box = document.getElementById("box");
+	    box.style.width = "400px";
+	    box.style.height = "200px";
+}
+*/
+</script>
+</head>
+<body>
+<div id="box" style="border:solid 1px red" >盒子</div>
+</body>
+</html> 
