@@ -1,6 +1,11 @@
 CSSStyleSheet类型表示样式表。
 
+【styleSheets包含文档中所有样式表，每个数组元素代表一个样式表，数组的索引位置是根据样式表在文档中的位置决定的】
+
+
 styleSheets对象为每一个样式表定义了一个cssRules对象，用来包含指定样式表中所有规则（样式）
+cssRules访问CSS属性时，使用的是CSS脚本属性名。
+
 
 为兼容主流浏览器，应先判断浏览器是否支持cssRules对象：
 var cssRules = document.styleSheets[0].cssRules || document.styleSheets[0].rules;

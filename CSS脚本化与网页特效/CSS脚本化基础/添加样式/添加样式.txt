@@ -1,0 +1,14 @@
+【addRule】
+styleSheet.addRule(selector,style,[index]);
+selector：样式选择符，字符串
+style：具体声明，字符串
+index：索引号，表示添加样式在样式表的索引位置，默认-1，表示位于样式表末尾，可不设置。
+
+例:styleSheets.addRule("P", "background-color:red;color:#fff;padding:1em;", index);
+
+【insertRule】：Firefox支持
+styleSheet.insertRule(rule, [index]);
+rule：完整的样式字符串
+index：与addRule参数作用相同，但默认为0，放在末尾。
+
+例：styleSheets.insertRule("p{background-color:red;color:#fff;padding:1em;}", index);
