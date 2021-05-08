@@ -1,0 +1,6 @@
+clientWidth     |获取元素可视部分的宽度，即CSS的width和padding属性值之和
+clientHeight    |获取元素可视部分的高度，即CSS的height和padding属性值之和
+offsetWidth     |元素在页面中占据的宽度总和，包括width、padding、border以及滚动条宽度。
+offsetHeight    |元素在页面中占据的高度总和，包括height、padding、border以及滚动条高度。
+scrollWidth     |元素的滚动宽度，如果该属性值大于clientWidth，元素会显示滚动条
+scrollHeiht     |元素的滚动高度如果该属性值大于clientWidth，元素会显示滚动条
