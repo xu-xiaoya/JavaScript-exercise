@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "gb2312" ?>
+<!--
+    XML文档三个部分：XML声明、处理指令和XML结构数据。
+    
+    XML文档必须有声明，声明信息是正确解析XML数据的基础，
+    必须是XML文档的第一行内容，前面不可以有任何内容，包括空格。
+-->
+<blog>
+    <item>
+        <id>1</id>
+        <title>标题1</title>
+        <time>发布时间</time>
+        <content>日志内容</content>
+        <word>
+            <user>昵称</user>
+            <time>留言时间</time>
+            <text>留言内容</text>
+        </word>
+    </item>
+</blog>
