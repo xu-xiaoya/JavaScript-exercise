@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+//传输名/值对信息
+var a = {
+    user:"ccs8",
+    padd:"123456",
+    email:"css8@mysite.cn"
+}//user:"ccs8"&padd:"123456"&email:"css8@mysite.cn"
+
+//传输有序数据列表
+var b = [
+    { name:"text", value:"css8" },
+    { name:"text", value:"123456" },
+    { name:"text", value:"css8@mysite.cn" }
+]//text:"css8"&text:"123456"&text:"css8@mysite.cn"
+
+//把数据转换为串行格式提交
+function toString(data) {
+    var a = [];
+    //数组：遍历读取元素对象的属性值，并存入数组
+    if (data.constructor == Array) {
+        for (var i = 0; i < data.length; i++) {
+            a.push(data[i].name + "=" + encodeURIComponent(data[i].value));
+        }  
+    } else {    //如果是对象，遍历对象，都区每个属性值，存入数组
+        for (var i in data) {
+            a.push(i + "=" + encodeURIComponent(data[i]));
+        }
+    }
+    return a.join("&");//把数组转换为串行字符串，并返回
+}
+
+var s1 = toString(a);
+var s2 = toString(b);
+
+alert(s1);
+alert(s2);
+
+</script>
+</body>
+</html>

@@ -6,11 +6,24 @@ case 2：已发送状态，此时已经通过send方法把一个请求发送到�
 case 3:正在接收状态，此时已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收到。
 case 4:完成响应状态，此时已经完成了HttpResponse响应的接收
 
+2.status：HTTP状态代码。
+仅当readyState属性值为3（正在接受中）或者4（已加载）时，才能对此属性进行访问。如果在readyState属性值小于3时，试图去读取status属性值，将引发一个异常。
+1**	信息，服务器收到请求，需要请求者继续执行操作
+2**	成功，操作被成功接收并处理
+3**	重定向，需要进一步的操作以完成请求
+4**	客户端错误，请求包含语法错误或无法完成请求
+5**	服务器错误，服务器在处理请求的过程中发生了错误
 
-2.responseText：以字符串的形式返回响应信息。
-当readyState属性为0、1或2时，responseText属性包含一个空字符串：
-当readyState属性值为3时，响应中包含客户端还没完成的响应信息；
-当readyState属性值卫4，responseText属性才包含完整的响应信息。
+常用：
+200    |ok              |客户端请求成功              
+400    |Bad Request     |客户端请求有语法错误，不能被服务器所理解
+401    |Unauthorized    |请求未经授权，这个状态代码必须和WWW-Authenticate报头
+403    |Forbidden       |服务器收到请求，但拒绝提供服务
+404    |Not Found       |请求资源不存在，例如输入了错误的URL
+500    |Internal Server Error   |服务器发生不可预期的错误
+503    |Server Unavailable      |服务器当前不能处理客户端的请求，一段时间后，可能恢复正常
+
+HTTP请求和响应顺利完成：status=200&&readyState=4
 
 
 3.responseXML：以XML数据返回响应信息。
@@ -23,8 +36,10 @@ case 4:完成响应状态，此时已经完成了HttpResponse响应的接收
 5.responseStream：以文本流形式返回响应信息
 
 
-6.status：HTTP状态代码。
-仅当readyState属性值为3（正在接受中）或者4（已加载）时，才能对此属性进行访问。如果在readyState属性值小于3时，试图去读取status属性值，将引发一个异常。
+6.responseText：以字符串的形式返回响应信息。
+当readyState属性为0、1或2时，responseText属性包含一个空字符串：
+当readyState属性值为3时，响应中包含客户端还没完成的响应信息；
+当readyState属性值卫4，responseText属性才包含完整的响应信息。
 
 
 7.statusText：HTTP状态代码文本。
