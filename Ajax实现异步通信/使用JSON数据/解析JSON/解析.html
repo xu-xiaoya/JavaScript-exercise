@@ -22,7 +22,7 @@ var n = '{"a": "1.5", "b": "2.3"}';
 var result = JSON.parse(n,int );
 document.write(result.a+'<br>'); 					//输出：1
 function  int(key, value){
-    if (typeof value == 'string'){
+    if (typeof value == 'string') {
         return parseInt(value);
     } else {
         return value; 
