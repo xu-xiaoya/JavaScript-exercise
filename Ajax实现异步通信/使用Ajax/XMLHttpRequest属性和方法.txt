@@ -40,12 +40,15 @@ case 4:完成响应状态，此时已经完成了HttpResponse响应的接收
 1.open()：创建一个http请求，并指定请求的方法、url以及验证信息
 XMLHttpRequest对象是通过调用open(method,uri,async,username,password)方法来进行初始化工作的。
 调用该方法将得到一个可以用来进行发送的对象，open有五个参数。
-//method参数是必须的，用来指定发送请求的HTTP方法（GET,POST,PUT,DELETE,HEAD)参数要大写。
+//method和url必须，method指定发送请求的HTTP方法（GET,POST,PUT,DELETE,HEAD)，大写。
 //async参数用用指定是否请求是异步的，默认是true。如果需要发送一个同步请求，需要把该参数设置为false。
 //如果需要服务器验证访问用户的情况，可以设置username和password
 
 
 2.send：发送请求到HTTP服务器并接受回应。
+send(varBody)
+varBody表示将通过该请求发送的数据，如果不传递信息，参数为null
+
 调用open()方法后，调用send()方法按照open方法设定的参数将请求进行发送。
 当open方法中async为true，在send（）方法调用后立即返回，否则将会中断直到请求返回。
 要注意的是，send方法必须在readyState为1时调用open方法以后才能调用。在调用send方法以后到接收响应信息知情，readyState属性的值将被设置成2.

@@ -1,0 +1,5 @@
+XMLHttpRequest.open(method,uri,async,username,password)
+1.method：必须，HTTP方法字符串（GET,POST,PUT,DELETE,HEAD)，大写。
+2.url：必须，请求的URL地址字符串，绝对地址/相对地址
+3.async：指定请求是否异步，默认是true。如果需要发送一个同步请求，需要把该参数设置为false。
+4.服务器验证访问用户的情况，可以设置username和password
