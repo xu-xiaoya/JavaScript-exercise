@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<script type = "text/javascript" src = "cookie.js"></script>
+
+</head>
+<body>
+<script>
+cookie("user","css8");
+cookie("uesr", "css8", {
+    expires:10,
+    path:"/",
+    domain:"www.mysite.cn",
+    secure:true
+});
+
+var s = cookie("user");
+alert(s);
+cookie("user", null);
+</script>
+</body>
+</html>  
