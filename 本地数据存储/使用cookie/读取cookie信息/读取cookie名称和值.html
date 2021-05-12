@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+//写入cookie信息
+//name表示cookie名称，value表示cookie值，expires表示有效天书，path表示有效路径
+//domain表示域，secure表示安全性设置。
+function setCookie( name, value, expires, path, domain, secure) {
+    var today = new Date();             //实例化时间对象
+    today.setTime(today.getTime());     //设置现在时间
+    if (expires) {                      //如果有效期存在，转换为毫秒
+        expires = expires * 1000 * 60 * 60 * 24;
+    }
+    var expires_date = new Date(today.getTime() + (expires));           //新建有效期时间对象
+    document.cookie = name + "=" + escape(value) +                      //写入cookie信息
+    (( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) +    //指定有效期
+    (( path ) ? ";path=" + path : "" ) +                                //指定有效路径
+    (( domain ) ? ";domain=" + domain : "" ) +                          //指定有效域
+    (( secure ) ? ";secure" : "" );                                     //指定是否加密传输
+}
+setCookie("zhu",123,7)
+
+//document.cookie可以读写cookie字符串信息，名值对以分号隔开
+
+//把cookie字符串转换为对象类型
+//参数：无
+//返回值：对象，存储cookie信息，其中名称作为对象的属性名，值作为属性值存在
+function getCookie() {
+    var a = document.cookie.split(";");     //把cookie字符串以分号劈开为数组
+    var o = {};                             //临时对象直接量
+    for (var i = 0; i < a.length; i++) {  //遍历数组
+        var v = a[i].split("=");            //=劈开每个数组
+        o[v[0]] = v[1];                     //把元素的名和值转换为对象的属性和属性值
+    }
+    return o;                               //返回对象
+}
+var o = getCookie(); 
+for (i in o) {
+    alert(i + "=" + o[i]);
+}
+</script>
+</body>
+</html>  

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+/*cookie信息只能在当前会话期（当前浏览窗口）中有效存在，一旦结束会话（关闭浏览器窗口），cookie信息将自动删除
+
+若要长久保存cookie信息，设置expires属性
+name = value;   expires = date;         //date为GMT格式：Sun, 30 Apr 2017 00:00:00 UTC
+
+Date.toGMTString()：将时间对象转换为GMT格式
+*/
+var d = new Date();                 //实例化当前日期对象
+d.setMonth(d.getMonth() + 1);       //提取月份并+1，然后重新设置当前日期对象
+d = "date=" + escape(d) +           
+    ";expires=" + d.toGMTString();  //在cookie字符串的尾部添加expires名值对
+document.cookie = d;                //写入
+alert(d)
+</script>
+</body>
+</html>  

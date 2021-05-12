@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+//document.cookie可以读写cookie字符串信息
+
+//值中若包含特殊字符，必须使用escape()函数对其进行编码
+var d = new Date();         //实例化时间对象
+d = d.toString();           //转换为字符串形式
+d = "date=" + escape(d);    //设置cookie字符串
+document.cookie = d;        //写入
+</script>
+</body>
+</html>  
