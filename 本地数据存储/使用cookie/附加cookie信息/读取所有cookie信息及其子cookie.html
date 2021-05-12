@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+
+<body>
+<script language="javascript" type="text/javascript">
+var o = getSubCookie();
+for (i in o) {
+    alert(i + "=" + o[i]);
+}
+//读取所有cookie信息，包括子cookie信息
+//参数：无
+//返回值：对象，存储子cookie对象，其中名称作为对象的属性，值为属性值
+function getSubCookie() {
+    var a = document.cookie.split(";");
+    var o = {};
+    for (var i = 0; i < a.length; i ++ ) {                  //遍历cookie信息数组
+        a[i] && (a[i] = a[i].replace(/^\s+|\s+$/, ""));     //清除头部空格符
+        var b = a[i].split("=");
+        var c = b[1];
+        c && (c = c.replace(/^\s+|\s+$/, ""));              //清除头部空格符
+        c = unescape(c);                                    //解码cookie值
+        if (!/\,/gi.test(c)) {                              //如果不包括子cookie信息，直接写入返回对象
+            o[b[0]] = b[1];
+        } else {
+            var d = c.split(",");                           //劈开cookie值
+            for (var j = 0; j < d.length; j++) {            //遍历子cookie数值
+                var e = d[j].split(":");                    //劈开子cookie名/值对
+                o[e[0]] = e[1];                             //把子cookie信息写入对象
+            }
+        }
+    }
+    return o;                                               //返回包括cookie的对象
+}
+</script>
+</body>
+</html>  

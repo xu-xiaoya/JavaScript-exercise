@@ -1,14 +1,10 @@
-<!doctype html>
-<html>
-<head>
-<title></title>
-<meta charset="utf-8">
-</head>
-<body>
-<script language="javascript" type="text/javascript">
-//读取指定cookie信息
-//参数：cookie名称
-//返回值：cookie值
+
+if (navigator.cookieEnabled) {
+    setCookie();
+    var n = getCookie("zhu");
+    alert(n);
+}
+
 function getCookie(name) {
     var start = document.cookie.indexOf(name + "=");  //提取cookie中与名称相同的字符串的索引
     var len = start + name.length + 1;                  //计算值的的索引位置
@@ -20,9 +16,6 @@ function getCookie(name) {
     if (end == - 1) end = document.cookie.length;   //索引值为-1，设置为cookie字符串的长度（到末尾）
     return unescape(document.cookie.substring(len, end));//获取名称对应的街区制并解码返回
 }
-var o = getCookie("zhu");
-alert(o);
-
 
 //写入cookie信息
 //name表示cookie名称，value表示cookie值，expires表示有效天书，path表示有效路径
@@ -40,7 +33,3 @@ function setCookie( name, value, expires, path, domain, secure) {
     (( domain ) ? ";domain=" + domain : "" ) +                          //指定有效域
     (( secure ) ? ";secure" : "" );                                     //指定是否加密传输
 }
-setCookie("zhu",123,7)
-</script>
-</body>
-</html>  

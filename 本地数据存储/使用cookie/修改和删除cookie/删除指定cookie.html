@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+//删除指定cookie信息
+//参数：name表cookie名称，path表所在路径，domain表所在域
+function deleteCookie(name, path, domain) {
+    if (getCookie(name )) 
+        document.cookie = name + "=" +              //名字存在，清空
+    ( ( path ) ? ";path=" + path : "") +            //存在路径，加上
+    ( ( domain ) ? ";domain=" + domain : "" ) +     //存在域，加上
+    ";expires=Thu, 01-Jan-1970 00:00:01 GMT";   //设置有效期为过去式，则表示cookie无效，被浏览器删除
+}
+
+//读取指定cookie信息
+//参数：cookie名称
+//返回值：cookie值
+function getCookie(name) {
+    var start = document.cookie.indexOf(name + "=");  //提取cookie中与名称相同的字符串的索引
+    var len = start + name.length + 1;                  //计算值的的索引位置
+    if ((!start) && (name != document.cookie.substring(0, name.length))) {  //不存在返回null
+        return null;
+    }
+    if (start == - 1) return null;  //没找到返回null
+    var end = document.cookie.indexOf(";", len);    //获取值后面的分号索引位置
+    if (end == - 1) end = document.cookie.length;   //索引值为-1，设置为cookie字符串的长度（到末尾）
+    return unescape(document.cookie.substring(len, end));//获取名称对应的街区制并解码返回
+}
+</script>
+</body>
+</html>  

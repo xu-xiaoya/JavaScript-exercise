@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+//把多条信息都保存在一个cookie中，而不是每一个信息建一个cookie
+//实现方法：每个名值对中，再嵌套一组子名/值对，然后把这组子名/值对传递给cookie的名称
+var d = new Date();	
+d.setMonth(d.getMonth() + 1); 
+d = d.toGMTString();
+
+var a = "name:a,age:20,addr:beijing"    //字名/值串
+var c = "user=" + escape(a)             //组合cookie字符串
+c += ";" + "expires=" + d;              //设置有效期一个月
+
+document.cookie = c;                    //写入
+</script>
+</body>
+</html>  
