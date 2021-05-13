@@ -1,0 +1,13 @@
+三个核心方法:
+- openDatabase:使用现有数据库或创建新数据库的方式创建数据库对象
+
+数据库名，版本号，描述，数据库大小，（创建回调）
+db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+
+-transaction：允许用户根据情况控制事务提交或回滚
+db.transaction(function(tx) {})
+
+
+- excuteSql：用于执行真实的SQL查询
+tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
