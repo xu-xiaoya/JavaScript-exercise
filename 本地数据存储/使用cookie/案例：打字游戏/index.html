@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>打字游戏</title>
+<script type = "text/javascript" src = "cookie.js"></script>
+<script>
+function start() {
+    var words = document.getElementById("words");
+    words.value = "";           //清空文本区域
+    if (!cookie("name")) {      //如果cookie中不存在用户名
+        var _name = prompt("请输入用户名：");
+        cookie("name", _name, {expires : 360}); //存储到cookie中
+    }
+    var date = new Date();
+    t1 = date.getTime();        //获取当前时间
+    words.focus;                //文本区域获得焦点
+}
+function stop() {
+    var date = new Date();
+    t2 = date.getTime();            //获取当前时间
+    var time = (t2-t1)/(1000*60);   //计算打字时间
+
+    var words = document.getElementById("words");
+    var num = words.value.length;       //计时输入的总字数
+    var rate = Math.round(num/time);    //计算打字速度
+    cookie("rate") || cookie("rate", 0, {expires : 360});   //检测cookie是否存在历史成绩
+    if (parseInt(cookie("rate")) < rate) 
+        cookie("rate", rate, {expires : 360});      //如果现在成绩优于历史成绩，存储该成绩
+    var sum = cookie("sum") ? cookie("sum") : 0;    //检测cookie中的总字数
+    cookie("sum", (parseInt(sum)+num), {expires : 360});    //存储累计总字数
+    var info = "你输入的总字数：" + cookie("sum") + '\n' +
+               "本次打字数：" + num + '\n' +
+               "本次打字速度（字/分）：" + rate + '\n' +
+               "最好成绩（字/分）：" + cookie("rate") + '\n';
+    words.value = info;     //输出汇总信息
+}
+function clear() {
+    cookie("name", null);
+    cookie("sum", null);
+    cookie("rate", null);
+    var words = document.getElementById("words");
+    words.value = "";
+}
+
+var t1 = t2 = 0;
+window.onload = function() {
+    var a = document.getElementById("start");
+    var b = document.getElementById("stop");
+    var c = document.getElementById("clear");
+    a.onclick = start;
+    b.onclick = stop;
+    c.onclick = clear;
+}
+</script>
+
+</head>
+<body>
+
+<input type = "button" name = "start" id = "start" value = "开始测试打字速度"/>
+<input type = "button" name = "stop" id = "stop" value = "停止测试"/>
+<input type = "button" name = "clear" id = "clear" value = "清除cookie痕迹" />
+<br>
+<textarea name = "words" cols = "80" rows = "20" id = "words"></textarea>
+
+</body>
+</html>

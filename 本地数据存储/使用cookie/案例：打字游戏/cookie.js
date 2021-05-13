@@ -21,7 +21,6 @@ function cookie(name, value, options) {
         }
         var path = options.path ? '; path=' + options.path : '';        //设置路径
         var domain = options.domain ? '; domain=' + options.domain : '';//设置域
-        //!!!注意此处secure无“=”
         var secure = options.secure ? '; secure' : '';//设置安全措施，如果为true直接设置，否则空
         document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
 
