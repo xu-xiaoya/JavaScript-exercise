@@ -1,0 +1,9 @@
+一、定义主页线程
+1.通过worker = new Worker(url) 加载一个js文件，创建一个Worker，同时返回一个worker实例
+2.通过worker.postMessage(data)向worker发送数据
+3.绑定worker.onmessage事件接受worker响应的数据
+4.使用worker.terminate()可以终止一个worker执行
+
+二、定义 Worker线程
+1.通过postMessage(data)方法向主线程发送数据
+2.绑定onmessage事件接收主线程发送过来的数据

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p id = "support">你的浏览器不支持 HTML5 Web Workers</p>
+<button id="stopButton" >停止任务</button>
+<button id="helloButton" >发送消息</button>
+<script>
+function stopWorker() {
+    worker.terminate(); 
+}
+function messageHandler(e) {
+    console.log(e.data);
+}
+function errorHandler(e) {
+    console.warn(e.message, e);
+}
+function loadDemo() {
+    if (typeof (Worker) !== "undefined") {
+        document.getElementById("support").innerHTML = "你的浏览器支持HTML5 Web Workers";
+        worker = new Worker("worker.js");
+        /*element.addEventListener(String type, Function listener, boolean useCapture);
+        参数说明：
+        ·type       |注册事件的类型名。例onclick对应事件类型click
+        ·listener   |监听函数，即事件处理函数。
+        ·useCapture |true：事件处理函数在事件传播的捕获阶段触发  
+                     false：事件处理函数在冒泡阶段触发
+        */
+        worker.addEventListener("message", messageHandler, true);
+        worker.addEventListener("error", errorHandler, true);
+        document.getElementById("helloButton").onclick = function() {
+            worker.postMessage("ok");
+        }
+        document.getElementById("stopButton").onclick = stopWorker;
+    }
+}
+window.addEventListener("load", loadDemo, true);
+</script>
+</body>
+</html>
