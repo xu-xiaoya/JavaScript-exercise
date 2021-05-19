@@ -7,7 +7,10 @@ console.log(n);//报错，全局无法访问局部变量
 */
 
 
-/*在全局作用域下，所有变量和函数的调用对象都是window！！*/
+/*在js中的全局作用域下，所有变量和函数的调用对象都是window对象！！*/
+var w = 1;
+console.log(window.w);//1
+
 //示例一
 var m = 5;  //函数外声明变量，标准全局变量
 function fn() {
