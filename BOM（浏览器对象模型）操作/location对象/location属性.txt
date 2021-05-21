@@ -1,3 +1,6 @@
+Location:设置相应的重定向中要跳转的URL
+
+
 URL示例：
 http://www.mysite.cn:80/news/index.asp?id=123&name= location#top
 
