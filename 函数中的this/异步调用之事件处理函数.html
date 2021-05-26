@@ -6,11 +6,13 @@
 </head>
 
 <body>
+
 <input type = "button" value="Button"/> 
-<!--this总是指向引发该事件的对象-->
+
 <script language = "javascript" type = "text/javascript">
 var button = document.getElementsByTagName("input")[0];
 var o = {};
+//this总是指向引发该事件的对象
 o.f = function() {      //不再指向对象o，而是button
     if (this == o) alert("this = o");
     if (this == window) alert("this = windows");
