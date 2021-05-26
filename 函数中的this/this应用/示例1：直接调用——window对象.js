@@ -4,4 +4,4 @@ function f() {
     }
 }
 f();    //直接调用函数f()，函数的执行作用域为全局域，故为window对象 => this指向window对象
-alert(window.x(4));
+console.log(window.x(4));

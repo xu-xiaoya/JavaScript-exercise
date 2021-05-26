@@ -8,6 +8,7 @@ function p(x, y, z) {   //构造函数
     this.y = y;
     this.z = z;
 }
+
 //修改原型属性：p.prototype.x = 2;  代表所有实例对象的x都变为2
 p.prototype.del = function() {  //定义原型方法
     for (var i in this) {   //遍历本地对象，删除实例对象内所有属性和方法

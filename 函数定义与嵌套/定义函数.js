@@ -13,6 +13,11 @@ var f = Function("a","b","return a+b");
 var f = function(a,b) {
     return a+b;
 }
+
+var f = (a,b)=>{//匿名函数：箭头函数形式
+    return a+b;
+}
+
 alert(f(1,2));
 
 //函数作为一个运算元，一体化
