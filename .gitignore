@@ -456,3 +456,10 @@ node_modules/vary/index.js
 node_modules/vary/LICENSE
 node_modules/vary/package.json
 node_modules/vary/README.md
+Ajax实现异步通信/使用Ajax/0.基础使用/node_modules/xmlhttprequest/.jshintrc
+Ajax实现异步通信/使用Ajax/0.基础使用/node_modules/xmlhttprequest/.npmignore
+Ajax实现异步通信/使用Ajax/0.基础使用/node_modules/xmlhttprequest/LICENSE
+Ajax实现异步通信/使用Ajax/0.基础使用/node_modules/xmlhttprequest/package.json
+Ajax实现异步通信/使用Ajax/0.基础使用/node_modules/xmlhttprequest/README.md
+Ajax实现异步通信/使用Ajax/0.基础使用/node_modules/xmlhttprequest/lib/XMLHttpRequest.js
+Ajax实现异步通信/使用Ajax/0.基础使用/package-lock.json

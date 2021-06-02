@@ -1,10 +1,14 @@
+XHR对象功能和属性：
+
 一、属性
 1，readyState：当前对象处于什么状态
-case 0 :未初始化状态，此时，已经创建了一个XMLHttpRequest对象，但是还没有初始化。
-Case 1:准备发送状态：此时，已经调用了XMLHttpRequest对象的open()方法，并且XMLHttpRequest对象已经准备好将一个请求发送到服务器。
-case 2：已发送状态，此时已经通过send方法把一个请求发送到服务器，等待响应。
-case 3:正在接收状态，此时已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收到。
-case 4:完成响应状态，此时已经完成了HttpResponse响应的接收
+case 0 UNSENT：未初始化状态，已创建XMLHttpRequest对象，但是还没有初始化调用open()方法。
+Case 1 OPENED：准备发送状态，已调用了XMLHttpRequest对象的open()方法，并且XMLHttpRequest对象已经准备好将一个请求发送到服务器。
+case 2 HEADERS_RECEIVED：已发送状态，send()方法已被调用，并且头部和状态已可获得。
+case 3 LOADING：正在接收状态（下载中），已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收到，responseText已接收部分数据。
+case 4 DONE：完成响应状态（下载完成），此时已经完成了HttpResponse响应的接收
+
+
 
 2.status：HTTP状态代码。
 仅当readyState属性值为3（正在接受中）或者4（已加载）时，才能对此属性进行访问。如果在readyState属性值小于3时，试图去读取status属性值，将引发一个异常。
@@ -26,41 +30,44 @@ case 4:完成响应状态，此时已经完成了HttpResponse响应的接收
 HTTP请求和响应顺利完成：status=200&&readyState=4
 
 
-3.responseXML：以XML数据返回响应信息。
+3.onreadystatechange：指定当readyState属性改变时的事件处理句柄。
+每当readyState属性发生改变时，触发onreadystatechange事件，一般都要通过该事件来触发回传处理函数。
+0-1 1-2 2-3 3-4
+
+4.responseXML：以XML数据返回响应信息。
 只有readyState=4，且响应头部的Content-Type的MIME类型被指定为XML(text/xml或者application/xml)时，该属性才会有值并且被解析成一个XML文档，否则该属性为null。
 
 
-4.responseBody：返回正文信息
+5.responseBody：返回正文信息
 
 
-5.responseStream：以文本流形式返回响应信息
+6.responseStream：以文本流形式返回响应信息
 
 
-6.responseText：以字符串的形式返回响应信息。
+7.responseText：以字符串的形式返回响应信息。
 当readyState属性为0、1或2时，responseText属性包含一个空字符串：
 当readyState属性值为3时，响应中包含客户端还没完成的响应信息；
 当readyState属性值卫4，responseText属性才包含完整的响应信息。
 
 
-7.statusText：HTTP状态代码文本。
+8.statusText：HTTP状态代码文本。
 仅当readyState属性为3或者4才可用。当readyState属性为其他值时试图存取statusText属性将引发一个异常。
 
-
-8.onreadystatechange：指定当readyState属性改变时的事件处理句柄。
-每当readyState属性发生改变时，就好触发onreadystatechange事件，一般都要通过该事件来触发回传处理函数。
 
 
 
 二、方法
-1.open()：创建一个http请求，并指定请求的方法、url以及验证信息
-XMLHttpRequest对象是通过调用open(method,uri,async,username,password)方法来进行初始化工作的。
-调用该方法将得到一个可以用来进行发送的对象，open有五个参数。
-//method和url必须，method指定发送请求的HTTP方法（GET,POST,PUT,DELETE,HEAD)，大写。
-//async参数用用指定是否请求是异步的，默认是true。如果需要发送一个同步请求，需要把该参数设置为false。
+1.open()：
+功能：http请求，并指定请求的方法、url以及验证信息
+
+XMLHttpRequest对象是通过调用open(method,uri,async,username,password)方法来进行初始化
+调用该方法将得到一个可以用来进行发送的对象，open有五个参数：
+//method和url必须，method指定发送请求的HTTP方法（GET,POST,PUT,DELETE,HEAD)，大写，url请求地址。
+//async参数：请求是否异步，默认是true异步，false同步（只有在发送多个请求才使用 “按顺序” 发送 1 2 3 接收1 2 3）。
 //如果需要服务器验证访问用户的情况，可以设置username和password
 
 
-2.send：发送请求到HTTP服务器并接受回应。
+2.send()：发送请求到HTTP服务器并接受回应。
 send(varBody)
 varBody表示将通过该请求发送的数据，如果不传递信息，参数为null
 
