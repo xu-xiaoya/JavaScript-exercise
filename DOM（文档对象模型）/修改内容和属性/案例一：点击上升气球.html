@@ -1,0 +1,31 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #ball {
+        position: absolute;
+        margin-top:500px;
+    }
+</style>
+
+<img id = "ball" src = "1.png" height="100px">
+
+
+<script>
+    var ball = document.getElementById('ball');
+    
+    let top_num = 500;
+    //alert(top_num);
+    ball.onclick = function() {
+        //console.log(ball);
+        let timer = setInterval( function() {
+            top_num = top_num - 10;
+            //console.log(top_num);
+            if (top_num == 0) {
+                clearInterval(timer);
+            }
+            ball.style.marginTop = top_num+'px';
+        },100);
+    }
+</script>
