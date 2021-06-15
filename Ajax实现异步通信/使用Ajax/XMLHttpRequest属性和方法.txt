@@ -58,24 +58,31 @@ HTTP请求和响应顺利完成：status=200&&readyState=4
 
 二、方法
 1.open()：
-功能：http请求，并指定请求的方法、url以及验证信息
+功能：创建http请求，并指定请求的方法、url以及验证信息
 
-XMLHttpRequest对象是通过调用open(method,uri,async,username,password)方法来进行初始化
-调用该方法将得到一个可以用来进行发送的对象，open有五个参数：
-//method和url必须，method指定发送请求的HTTP方法（GET,POST,PUT,DELETE,HEAD)，大写，url请求地址。
-//async参数：请求是否异步，默认是true异步，false同步（只有在发送多个请求才使用 “按顺序” 发送 1 2 3 接收1 2 3）。
-//如果需要服务器验证访问用户的情况，可以设置username和password
+open(method,uri,async,username,password)
+- method ：请求方式  "GET" "POST" "PUT" "DELETE"
+- url：请求服务器地址
+- async：请求是否异步，默认是true/异步(建议)
+如果需要发送一个同步请求，需要把该参数设置为false。
+
+如果需要服务器验证访问用户的情况，可以设置username和password
 
 
 2.send()：发送请求到HTTP服务器并接受回应。
-send(varBody)
-varBody表示将通过该请求发送的数据，如果不传递信息，参数为null
 
-调用open()方法后，调用send()方法按照open方法设定的参数将请求进行发送。
-当open方法中async为true，在send（）方法调用后立即返回，否则将会中断直到请求返回。
-要注意的是，send方法必须在readyState为1时调用open方法以后才能调用。在调用send方法以后到接收响应信息知情，readyState属性的值将被设置成2.
-一旦接收到响应信息，readyState属性将被设为3.直到响应接收完成，readyState属性的值才会被设定为4。send()方法使用一个可选的参数，该参数可以包含可变类型的数据。用户可以使用它并通过POST方法把数据发送到服务器。
-另外可以显示的使用null参数调用sned方法，这与不用参数调用该方法一样。
+send()按照open()方法设定的参数将请求发送：
+- 如果请求方式 GET DELETE  send() 没有参数/参数为null
+- 如果请求方式 POST PUT    send('id=19&name=dd&age=21');
+……
+…… 
+- async为true：send方法调用后立即返回，否则将会中断直到请求返回。
+
+步骤：
+a. readyState=1 且 已调用open方法：调用send()
+b. 调用send()后接收响应信息知情：readyState=2
+c.一旦接收到响应信息，readyState=3.
+d.响应接收完成，readyState=4
 
 对于大多数其他的数据类型，在调用send方法之前，应该使用setRequestHeader()方法先设置Content-Type头部，
 如果send（data)方法中的data参数的类型为DOMString,那么数据将被编码成UTF-8，
