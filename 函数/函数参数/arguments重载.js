@@ -2,7 +2,8 @@
 function sayHello() {
     switch(arguments.length) {
         case 0:
-            return "Hello";
+            // return "Hello";
+            console.log("Hello");
         case 1:
             return "Hello,"+ arguments[0];
         case 2:
