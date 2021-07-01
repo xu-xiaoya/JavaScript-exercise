@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //倒计时1——你写的代码
+    (function(){ 
+      var i=5;
+                //启动周期性定时器，每隔一秒执行一次
+      //保存定时器序号，用于将来停止定时器之用
+      var timer1=setInterval(function(){
+        //如果倒计时还没到0
+        if(i!=0){
+          //就继续秒杀
+          console.log(`1号商品，秒杀进行中...${i}`);
+          //倒计时-1
+          i--;
+        }else{//否则，如果倒计时已经是0
+          //就秒杀结束，并停止定时器
+          console.log("1号商品秒杀结束!!!");
+          clearInterval(timer1);
+        }
+      },1000);//每隔1秒
+    })();//必须加;
+
+    //倒计时2——别人写的功能中
+    (function(){
+      var i=5;
+                //启动周期性定时器，每隔一秒执行一次
+      //保存定时器序号，用于将来停止定时器之用
+      var timer2=setInterval(function(){
+        //如果倒计时还没到0
+        if(i!=0){
+          //就继续秒杀
+          console.log(`2号商品，秒杀进行中...${i}`);
+          //倒计时-1
+          i--;
+        }else{//否则，如果倒计时已经是0
+          //就秒杀结束，并停止定时器
+          console.log("2号商品秒杀结束!!!");
+          clearInterval(timer2);
+        }
+      },1000);//每隔1秒
+    })()
+  </script>
+</body>
+</html>
