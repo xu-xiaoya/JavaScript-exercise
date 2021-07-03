@@ -6,16 +6,17 @@ function mother(){
   return function(money){
     //从总价中减去本次花的前
     total-=money;
+    total-=money;
     console.log(`花了${money}，还剩${total}`);
   }
 }
 //3. 调用外层函数，用变量接住返回的内层函数对象。
-var pay=mother();
 // pay返回的是一个函数
 //pay:function(money){
     //total-=money;
     //console.log(`花了${money}，还剩${total}`);
 //}
+var pay=mother();//妈妈生第一个小孩，临时为小孩包一个红包1，小孩1拿着红包1独立门户
 
 //pay是一个函数，用()才会调用 
 pay(100);//剩900
@@ -24,3 +25,6 @@ pay(100);//剩900
 total=0;
 
 pay(100);//剩800
+
+var pay2 = mother();//妈妈生第二个小孩，临时为小孩包一个红包2，小孩2拿着红包2独立门户
+pay(100);//剩900

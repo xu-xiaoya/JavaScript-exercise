@@ -13,6 +13,6 @@ var erya=new Student("erya",11)
 var arr=[1,2,3];
 var now=new Date();
 
-console.log(lilei.toString())
+console.log(erya.toString())
 console.log(arr.toString())
 console.log(now.toString())
