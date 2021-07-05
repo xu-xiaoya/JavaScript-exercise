@@ -1,0 +1,25 @@
+a. 防扩展
+禁止给对象添加新属性
+Object.preventExtensions(对象)
+
+
+b. 密封
+既禁止添加新属性，又禁止删除现有属性
+Object.seal(对象)
+
+i. 会自动调用`preventExtensions()`，先禁止添加
+ii. 会自动遍历对象中每个属性，自动设置每个属性的`configurable:false`，所有属性禁止删除。
+
+tip:
+1.用seal()，既不用写`preventExtensions()`，又不用写所有的`configurable:false`。
+2. seal()虽然不能添加删除属性，但可以修改属性值。
+3. 一般，保护到密封级别就够了！
+
+
+c. 冻结:
+既禁止添加删除属性，又禁止修改一切属性值。
+Object.freeze(对象)
+
+i. 会自动调用preventExtensions()，先禁止添加
+ii. 会自动遍历对象中每个属性，自动设置每个属性的configurable:false，所有属性禁止删除。
+iii. 会自动遍历对象中每个属性，自动设置每个属性的writable:false，所有属性只读

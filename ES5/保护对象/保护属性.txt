@@ -1,0 +1,11 @@
+ES5中，对象中每个属性，不再只是一个简单的值。
+底层已经变成了一个缩微的小对象:
+
+例，“value : 1001”底层包含：
+
+writable: true      控制是否可修改当前属性值
+Cenumerable: true   控制是杏可用for in遍历到这个属性
+                    只防for in，不防.
+configurable: true  1.控制是否可删除当前属性
+                    2控制是否可修改前两个开关!
+                    一旦改为false，不可逆!
