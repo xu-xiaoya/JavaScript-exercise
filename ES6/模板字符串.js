@@ -14,30 +14,22 @@ Hello ${name},
 how are you ${time}?
 `);
 
-
+//1.可以写一切有返回值的js表达式：
+//  变量 运算 三目 函数调用 创建对象 调用方法 访问数组元素
+//2.不能写程序结构
+//  if elseif else for(){} while(){} do{}while()
 
 var title = 'Apple MacBook Air';
-var os = 'MacOS';
-var memory = '16G';
 var isOnsale = 1;
+var week = ["日","一","二","三","四","五","六"];
+var emp = {
+  sex: 0,
+  salary: 50000
+};
 console.log(`
   商品名称：${title}
-  操作系统：${os}
-  内存大小：${memory}
   是否在售：${isOnsale === 1 ? '是' : '否'}
+  日期：${week[new Date().getDay()]}
+  性别：${emp.sex ? '男' : '女'}
+  工资：${emp.salary.toFixed(2)}元
 `);
-
-
-//练习：声明变量保存一条员工的数据，格式为对象，包含的属性有编号，姓名，性别(1/0)，工资；最后打印出以下格式
-var emp = {
-    eid: 2,
-    ename: 'erya',
-    sex: 0,
-    salary: 50000
-  };
-  console.log(`
-    编号：${emp.eid}
-    姓名：${emp.ename}
-    性别：${emp.sex ? '男' : '女'}
-    工资：${emp.salary.toFixed(2)}元
-  `);
