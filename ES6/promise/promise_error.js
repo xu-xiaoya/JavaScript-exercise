@@ -17,7 +17,7 @@ function erya() {
                 err("erya摔倒了！退赛！")
             }
         }, 6000)
-    })
+    }) 
 }
 function yuan(bang2) {//异步
     //bang2=erya中door()给的"接力棒"

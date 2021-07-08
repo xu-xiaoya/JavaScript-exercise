@@ -9,12 +9,12 @@ function erya() {
         }, 6000);
     })
 }
-function yuan({bang, drink}) {//异步
+function yuanyuan({bang, drink}) {//异步
     //bang2=erya中door()给的"接力棒"
     return new Promise(function(door) {
-        console.log(`yuan拿着 ${bang} 和${drink}起跑...`);
+        console.log(`yuanyuan拿着 ${bang} 和${drink}起跑...`);
         setTimeout(function() {//异步
-            console.log(`yuan拿着 ${bang} 和${drink}到达终点！`);
+            console.log(`yuanyuan拿着 ${bang} 和${drink}到达终点！`);
             door({bang, drink}); //通知.then中串联的下一项任务可以开始执行!
         }, 4000)
     })
@@ -27,4 +27,4 @@ function bear({bang, drink}) {//异步
     }, 2000)
 }
 
-erya().then(yuan).then(bear);
+erya().then(yuanyuan).then(bear);
