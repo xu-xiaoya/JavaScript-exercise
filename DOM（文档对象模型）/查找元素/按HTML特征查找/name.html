@@ -1,0 +1,23 @@
+<form>
+	用户名:<input name="uname"><br/>
+	性别:<label><input type="radio" name="sex" value="1">男</label>
+	<label><input type="radio" name="sex" value="0">女</label>
+</form>
+<!-- 
+    var 类数组对象=document.getElementsByName("name名")
+    如果找到符合要求的元素，就返回类数组对象
+    如果没找到，返回空类数组对象: {   length:0 }
+    
+    .前的主语必须是document对象
+    一般常用于表单组件
+ -->
+<script>
+	//查找网页中两个name为sex的radio元素
+	var radios=document.getElementsByName("sex");
+	console.log(radios);
+	
+	//查找网页中唯一一个name为uname的input元素，为其添加红色阴影
+	var input=document.getElementsByName("uname")[0];
+	console.log(input);
+	input.style.boxShadow="0 0 5px red";
+</script>

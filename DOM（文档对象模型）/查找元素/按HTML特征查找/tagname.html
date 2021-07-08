@@ -1,0 +1,27 @@
+<span>Hello World !</span>
+<ul id="nav">
+	<li class="item">电影</li>
+	<li class="item">综艺
+		<ul>
+			<li class="item active">你好</li>
+		</ul>
+	</li>
+	<li class="item">剧集</li>
+</ul>	
+<!-- 
+    var 类数组对象=任意父元素.getElementsByTagName("标签名")
+    如果找到符合要求的元素，就返回类数组对象
+    如果没找到，返回空类数组对象: {length:0 }
+    不仅查找直接子元素，而且会在所有后代元素中查找符合要求的元素。 
+-->
+<script>
+	//前提: 已经找到ulNav了
+	//想继续在ulNav下查找所有的li元素
+	var lis=ulNav.getElementsByTagName("li");
+	console.log(lis);
+	
+	//查找整个页面中唯一的一个span元素，并设置span的字体颜色为红色
+	var span = document.getElementsByTagName("span")[0];
+	console.log(span);
+	span.style.color="red";//<span style="color:red">
+</script>

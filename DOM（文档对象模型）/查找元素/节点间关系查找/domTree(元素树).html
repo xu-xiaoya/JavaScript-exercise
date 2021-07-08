@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>DOM Tree</title>
+<meta charset="utf-8" />
+</head>
+<body>
+
+<span id="s1">Hello</span>
+<h1>标题一</h1>
+
+<script>
+//获得body的第一个直接子元素span
+var span=document.body.firstElementChild
+console.log(span); //希望<span>…</span>
+
+//获得span的下一个兄弟h1
+var h1=span.nextElementSibling;
+console.log(h1); //希望<h1>…</h1>
+
+//获得body下所有直接子元素的集合：3个元素,返回一个类数组对象
+console.log(document.body.children); //希望[span, h1, script]
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<ul id="nav">
+	<li class="item">电影</li>
+	<li class="item">综艺
+		<ul>
+			<li class="item active">跑男</li>
+			<li class="item">爸爸</li>
+			<li class="item">极限</li>
+		</ul>
+	</li>
+	<li class="item">剧集</li>
+</ul>	
+<!--  
+	var 类数组对象=任意父元素.getElementsByClassName("class名")
+	如果找到符合要求的元素，就返回类数组对象
+	如果没找到，返回空类数组对象: {   length:0 }
+	不仅查找直接子元素，而且会在所有后代元素中查找符合要求的元素
+-->
+<script>
+	//想在ulNav下查找所有class为item的li元素
+	var lis=ulNav.getElementsByClassName("item");
+	console.log(lis);
+	
+	//想class为active的一个元素字体变为绿色
+	// 如果只找到一个符合要求的元素时，必须用[0]，取出类数组对象中第一个位置保存的元素对象
+	var liActive=ulNav.getElementsByClassName("active")[0];
+	console.log(liActive);
+	liActive.style.color="green";
+</script>
