@@ -1,0 +1,23 @@
+<h3 id="msg">来自<a href="#">&lt;&lt;新华社&gt;&gt;</a>的消息</h3>
+<h3 id="msg2"></h3>
+<h3 id="msg3"></h3>
+
+<script>
+var h3Msg=document.getElementById("msg")
+var h3Msg2=document.getElementById("msg2");
+var h3Msg3=document.getElementById("msg3");
+
+//想获取msg的内容
+console.log(h3Msg.innerHTML);//未加工的原始
+console.log(h3Msg.textContent);//解析后的纯文本
+
+//修改内容(双标签)
+var str=`来自<a href="#">&lt;&lt;新华社&gt;&gt;</a>的消息`; 
+//元素.innerHTML
+//a．获取或修改元素开始标签到结束标签之间的原始的HTML片段
+h3Msg2.innerHTML=str;//先解析再显示
+
+//元素.textContent
+//b.获取或修改元素开始标签到结束标签之间的纯文本内容
+h3Msg3.textContent=str;//不解析直接显示原始
+</script>

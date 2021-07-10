@@ -1,0 +1,45 @@
+<!-- 
+字符串类型的HTML标准属性: 
+HTML标准中规定的，属性值为字符串的属性
+例如class, id, name, value, href, title, ...
+
+
+旧DOM方法：
+i. 获取属性值: 元素对象.getAttribute("属性名")
+ii. 修改属性值: 元素对象.setAttribute("属性名", "新值")
+iii. 判断是否包含某个属性: 元素对象.hasAttribute("属性名")
+iv. 移除属性: 元素.removeAttribute("属性名")
+
+新DOM：
+①获取属性值: 
+  元素对象.属性名
+②修改属性值: 
+  元素对象.属性名=属性值
+③判断是否包含某个属性: 
+  元素.属性名!==""  说明包含该属性
+④移除属性: 
+  元素对象.属性名=""
+-->
+<a id="a1" href="http://www.baidu.com" title="前往baidu">go to baidu</a>
+<script>
+    var a1=document.getElementById("a1");
+    //想获得a1的href属性
+    // console.log(a1.getAttribute("href"))
+    console.log(a1.href);
+
+    //修改a1的title属性
+    // a1.setAttribute("title","Welcome tmooc")
+    a1.title="Welcome tmooc";
+
+    //判断a1上是否包含target属性
+    // console.log(a1.hasAttribute("target"));//false
+    console.log(a1.target!=="");//false
+
+    //移除id属性
+    // a1.removeAttribute("id");
+    // delete a1.id;//错误
+    a1.id="";
+
+    console.log(a1);
+    console.dir(a1);
+</script>

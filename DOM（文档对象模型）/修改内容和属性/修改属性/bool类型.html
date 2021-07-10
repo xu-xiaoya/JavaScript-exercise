@@ -1,0 +1,27 @@
+<!-- 
+HTML标准中规定的，不需要写属性值，只靠属性名就可发挥作用的属性
+例： 
+1)checked: 用于标记一个checkbox是否被选中
+2)disabled: 用于标记一个表单元素是否被禁用
+
+能用新HTML DOM来操作，且属性值必须是bool类型的true或false。
+`元素.属性名`
+-->
+<input id="chb" type="checkbox">同意</br>
+<button id="btn" disabled>注册</button>
+<script>
+//DOM4步
+//1.查找触发事件的元素： 
+//本例中: 点击CheckBox影响按钮的启用禁用状态
+var chb = document.getElementById("chb");
+//2. 绑定事件处理函数
+//当表单元素的内容或状态改变时自动触发
+//本例中，当CheckBox的选中状态被改变时，自动执行
+chb.onchange = function() {
+    //3. 查找触发事件的元素
+    //本例中，选中checkbox影响button的启用和禁用状态
+    var btn = document.getElementById("btn");
+    //4. 修改元素
+    btn.disabled = !this.checked;
+}
+</script>

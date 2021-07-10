@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>全选和取消全选</title>
+<style>
+/*首先必须是input
+  其次必须是选中的*/
+input:checked {
+    box-shadow:0 0 5px red;
+}
+/*首先必须是input
+  其次必须是未选中的*/
+input:not(:checked) {
+    box-shadow:0 0 5px green;
+}
+</style>
+</head>
+<body>
+<h2>管理员列表</h2>
+<table border="1px" width="500px">
+    <thead>
+    <tr>
+        <th><input type="checkbox"/>全选</th>
+        <th>管理员ID</th>
+        <th>姓名</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>Tester</td>
+            <td>修改 删除</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>2</td>
+            <td>Manager</td>
+            <td>修改 删除</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>3</td>
+            <td>Analyst</td>
+            <td>修改 删除</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>4</td>
+            <td>Admin</td>
+            <td>修改 删除</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+/*点全选，修改tbody中所有checkbox*/
+//1.查找触发事件的元素
+// table > thead 下的input
+var chbAll = document.querySelector('table > thead input');
+//2.绑定事件处理函数
+chbAll.onclick = function() {
+    //3.查找要修改的元素
+    // 本例中修改tbody下每行第一个td中的input
+    var inputs = document.querySelectorAll('table>tbody>tr>td:first-child>input');
+    //4.修改元素
+    //遍历inputs中每个checkbox
+    for (var chb of inputs) {
+        chb.checked = chbAll.checked;
+    }
+}
+
+/*点tbody中每个checkbox，也会影响表头中的全选*/
+//1.查找触发事件的元素
+//本例中:查找tbody下每行第一个td中的input
+var inputs = document.querySelectorAll('table>tbody>tr>td:first-child>input');
+//2.绑定事件处理函数
+for (var input of inputs) {
+    input.onclick = function() {
+        //3.查找要修改的元素(chbAll已找到)
+        //4.修改元素
+        //先查找tbody下有没有未选中的checkbox
+        var unchecked = document.querySelector("table>tbody>tr>td:first-child>input:not(:checked)");
+        if (unchecked == null)
+            //如果没找到未选中的checkbox，则chbAll就选中
+            chbAll.checked = true;
+        else 
+            //如果找到未选中的checkbox，则chbAll就不选中
+            chbAll.checked = false;
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>1. 实现伸缩二级菜单</title>
+<meta charset="utf-8" />
+<style>
+li {
+    list-style: none;
+}
+li span {
+    padding-left: 20px;
+    cursor: pointer;
+    background: url("add.png") no-repeat center left;
+}
+li ul {
+    display: none;
+}
+.open {
+    background: url("minus.png") no-repeat center left;
+}
+/* 凡是class为open的的元素下一个兄弟为ul，才显示 */
+.open+ul {
+    display: block;
+}
+</style>
+</head>
+
+<body>
+<ul class="tree">
+    <li>
+        <span class="open">考勤管理</span>
+        <ul>
+            <li>日常考勤</li>
+            <li>请假申请</li>
+            <li>加班/出差</li>
+        </ul>
+    </li>
+    <li>
+        <span>信息中心</span>
+        <ul>
+            <li>通知公告</li>
+            <li>公司新闻</li>
+            <li>规章制度</li>
+        </ul>
+    </li>
+    <li>
+        <span>协同办公</span>
+        <ul>
+            <li>公文流转</li>
+            <li>文件中心</li>
+            <li>内部邮件</li>
+            <li>即时通信</li>
+            <li>短信提醒</li>
+        </ul>
+    </li>
+</ul>
+<script>
+//DOM 4步
+//1. 查找触发事件的元素
+//本例中: 点击ul下li下所有span都能触发变化
+var spans=document.querySelectorAll(
+    "ul>li>span"
+);
+//2. 绑定事件处理函数
+//本例中: 因为要给每个span绑定单击事件，所以要遍历找到的每个span
+for(var span of spans) {
+    span.onclick=function() {
+        //3. 查找要修改的元素
+        //4. 修改元素
+        //如果当前点击的span的class是open，说明当前span是打开的，则只关闭自己即可！不用再遍历别人了
+        if (this.className=="open") {
+            this.className="";
+            return;//停止执行当前函数，并退出当前函数。
+        }
+        //打开自己之前，为防止别的span也开着，应该先找到开着的span
+        //先找到ul下所有span
+        var spans=
+            document.querySelectorAll(
+                "ul>li>span"
+            );
+        //遍历清除每个span上的class open，让所有的菜单暂时都隐藏
+        for(var span of spans) {
+            span.className="";
+        }
+        //然后，再只给当前点击的一个span添加class open，只让当前一个菜单显示
+        this.className="open";
+    }
+}
+</script>
+</body>
+
+</html>

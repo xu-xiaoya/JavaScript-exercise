@@ -1,0 +1,58 @@
+<style>
+div {
+    float: left;
+    width: 110px;
+    height: 200px;
+}
+#d1 {
+    background-color: #ccff00;
+    background-image: url(xsj.png);
+    background-size: 160% 80%;
+    background-position: -30px 30px;
+}
+#d3 {
+    background-image: url(men.png);
+    background-size: 110% 110%;
+    background-position: -10px -10px;
+    position: relative;
+}
+#d2 {
+    cursor: pointer;
+    background-color: #fff;
+    position: absolute;
+    width: 40px;
+    height: 18px;
+    text-align: center;
+    top: 65px;
+    font-weight: bold;
+    color: green;
+    left: 50%;
+    margin-left: -20px;
+}
+</style>
+
+<div id="d1"></div>
+<div id="d3">
+	<div id="d2">无人</div>
+</div>
+
+<script>
+//1.查找要绑定事件的元素d2
+var d2 = document.getElementById("d2");
+//2.给d2绑定事件:通过单击d2来显示/隐藏左侧的d1
+d2.onclick = function() {
+    //3.查找要修改的元素d1(洗手间)
+    var d1 = document.getElementById("d1");
+    //4.修改d1的display
+    //如果d2的文本内容为"无人"，单击后关门,变"有人"
+    if (this.innerHTML === '无人') {
+        d1.style.display = "none";//关门
+        this.innerHTML = "有人";
+        this.style.color = "red";
+    } else {
+        d1.style.display = "block";//关门
+        this.innerHTML = "无人";
+        this.style.color = "green";
+    }
+}
+</script>
