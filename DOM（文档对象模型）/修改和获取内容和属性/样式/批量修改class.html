@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>实现带样式的表单验证</title>
+	<style>
+		table {
+			width: 700px
+		}
+
+		td:first-child {
+			width: 60px
+		}
+
+		td:nth-child(2) {
+			width: 200px
+		}
+
+		td:first-child+td {
+			width: 200px
+		}
+
+		td span {
+			color: red
+		}
+
+		.vali_info {
+			display: none;
+		}
+
+		.txt_focus {
+			border-top: 2px solid black;
+			border-left: 2px solid black;
+		}
+
+		.vali_success,
+		.vali_fail {
+			background-repeat: no-repeat;
+			background-position: left center;
+			display: block;
+		}
+
+		.vali_success {
+			background-image: url("images/ok.png");
+			padding-left: 20px;
+			width: 0px;
+			height: 20px;
+			overflow: hidden;
+		}
+
+		.vali_fail {
+			background-image: url("images/err.png");
+			border: 1px solid red;
+			background-color: #ddd;
+			color: Red;
+			padding-left: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<form id="form1">
+		<h2>增加管理员</h2>
+		<table>
+			<tr>
+				<td>姓名：</td>
+				<td>
+					<input name="username" />
+					<span>*</span>
+				</td>
+				<td>
+					<div class="vali_info">
+						10个字符以内的字母、数字或下划线的组合
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>
+					<input type="password" name="pwd" />
+					<span>*</span>
+				</td>
+				<td>
+					<div class="vali_info">6位数字</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+					<input type="submit" value="保存" />
+					<input type="reset" value="重填" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		//上课只做姓名框的验证
+		//DOM 4步
+		//1. 查找触发事件的元素
+		//本例中: 查找name等于uname的一个姓名文本框
+		var txtName=document.getElementsByName("username")[0];//只找到一个，只提取出0位置的一个元素继续操作。
+		//2. 绑定事件处理函数
+		//本例中: 当姓名文本框失去焦点时自动执行
+		txtName.onblur=function(){
+			//3. 查找要修改的元素
+			//本例中: 查找当前姓名文本框的爹td的下一个兄弟td的第一个孩子div
+			var div=this.parentElement
+									.nextElementSibling
+									.children[0]
+			//4. 修改元素
+			//4.1 先获得当前文本框中的内容
+			var str=this.value;
+			//4.2 定义正则表达式来描述用户名的规则
+			//\w: 专门匹配一位数字、字母或下划线
+			var reg=/^\w{1,10}$/;
+			//4.3 用正则表达式验证当前文本框的内容
+			var result=reg.test(str);
+			//4.4 如果格式验证通过，则修改div的class为vali_success
+			if(result==true){
+				div.className="vali_success"
+			}else{
+			//4.5 如果格式验证失败，则修改diV的class为vali_fail
+				div.className="vali_fail"
+			}
+		}
+	</script>
+</body>
+
+</html>
