@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>读取并修改元素的属性</title>
+  <meta charset="utf-8" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #tab li {
+      float: left;
+      list-style: none;
+    }
+
+    #tab li a {
+      display: inline-block;
+      text-decoration: none;
+      width: 80px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #000;
+    }
+
+    #container {
+      position: relative;
+    }
+
+    #content1,
+    #content2,
+    #content3 {
+      width: 300px;
+      height: 100px;
+      padding: 30px;
+      position: absolute;
+      top: 40px;
+      left: 0;
+    }
+
+    #tab li:first-child,
+    #content1 {
+      background-color: #ffcc00;
+    }
+
+    #tab li:first-child+li,
+    #content2 {
+      background-color: #ff00cc;
+    }
+
+    #tab li:first-child+li+li,
+    #content3 {
+      background-color: #00ccff;
+    }
+  </style>
+
+</head>
+
+<body>
+<h2>实现多标签页效果</h2>
+<div class="tabs">
+  <ul id="tab">
+    <li><a href="#content1" data-tab data-id="content1">10元套餐</a></li>
+    <li><a href="#content2" data-tab data-id="content2">30元套餐</a></li>
+    <li><a href="#content3" data-tab data-id="content3">50元包月</a></li>
+  </ul>
+  <div id="container">
+    <div id="content1" style="z-index:10">
+      10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+    </div>
+    <div id="content2">
+      30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+    </div>
+    <div id="content3">
+      50元包月详情：<br />&nbsp;每月无限量随心打
+    </div>
+  </div>
+</div>
+<script>
+//DOM 4步
+//1. 查找触发事件的元素
+//本例中: 查找带有data-tab自定义属性的a元素
+var as = document.querySelectorAll(
+  "[data-tab]"
+);
+//2. 绑定事件处理函数
+//2.1 先定义一个变量z=10，临时保存最大的z-index值
+var z = 10;
+//2.2 遍历查找结果中每个a
+for (var a of as) {
+  //每遍历一个a，就绑定单击事件
+  a.onclick=function() {
+    //3. 查找要修改的元素
+    //本例中: 修改当前a对应的div
+    //3.1 从当前a的data-id自定义属性中获得当前a的对应div的id名
+    var id=this.getAttribute("data-id");
+        //或this.dataset.id
+    //3.2 用id作为查找条件，查找当前a对应的div
+    var div=document.getElementById(id);
+                                // 变量
+    //4. 修改元素
+    z++;//4.1 先将z++
+    //4.2 再将z赋值给当前a对应的div的zIndex值
+    div.style.zIndex=z;
+  }
+}
+</script>
+</body>
+
+</html>

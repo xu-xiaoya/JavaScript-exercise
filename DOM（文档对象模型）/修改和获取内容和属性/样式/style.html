@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1{
+          background-color:red;
+        }
+    </style>
+</head>
+
+<body>
+<h1 id="h1" style="color:yellow">Welcome</h1>
+<p>Welcome to my web site</p>
+
+<script>
+var h1=document.getElementById("h1");
+//style只能获取内联样式
+console.log(h1.style.color);
+console.log(h1.style.backgroundColor)
+</script>
+    
+</body>
+</html>
