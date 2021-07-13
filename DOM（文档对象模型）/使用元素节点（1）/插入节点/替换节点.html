@@ -25,10 +25,11 @@
 <script>
 var ok = document.getElementById("ok");// 获取按钮元素的引用
 
-ok.onclick = function(){		// 为按钮注册一个鼠标单击事件处理函数
+ok.onclick = function() {		// 为按钮注册一个鼠标单击事件处理函数
 	var red = document.getElementById("red");		// 获取红色盒子的引用
 	var h1 = document.getElementsByTagName("h1")[0];// 获取一级标题的引用
 	var h2 = document.createElement("h2");			// 创建二级标题元素，并引用
+	h2.innerHTML = '我是新来的';
 	
 	red.replaceChild(h2,h1); 	// 把一级标题替换为二级标题
 }

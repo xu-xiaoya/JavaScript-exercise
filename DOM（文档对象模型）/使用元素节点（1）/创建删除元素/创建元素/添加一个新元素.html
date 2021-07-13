@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<script>
+    //1. 创建一个新的空元素等待
+    var a=document.createElement("a")
+
+    //2. 为新元素对象设置必要属性
+    a.innerHTML="baidu";
+    a.href="http://www.baidu.com";
+    //结果:<a href="http://www.baidu.com">baidu</a>
+
+    //3. 将新元素添加到DOM树
+    document.body.appendChild(a);
+</script>
+</body>
+</html>
