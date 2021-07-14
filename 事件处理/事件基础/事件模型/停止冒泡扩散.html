@@ -16,10 +16,10 @@ function bubble() {
     var show = document.getElementById("show");
     for (var i = 0; i < div.length; ++i) { //遍历div元素
         div[i].onclick = (function(i) { //为每个div元素注册鼠标单击事件处理函数
-            return function(e) {//返回闭包函数
+            return function(e) {//返回闭包函数，传入事件对象e
                 div[i].style.border = '1px dashed red'; //定义当前元素的边框线为红色
-                show.innerHTML += div[i].className + " > ";
-                e.stopPropagation();
+                show.innerHTML += div[i].className + " > \n" ;
+                e.stopPropagation();//停止冒泡
             }
         })(i);
     }

@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+
 <style type="text/css">
 div {/* 定义div元素样式 */
     margin: 20px;			/* 边界距离 */
@@ -9,8 +10,9 @@ div {/* 定义div元素样式 */
     font-size: 18px; 		/* 字体大小 */
 }
 </style> 
+
 <script>
-function bubble() {
+    function bubble() {
         var div = document.getElementsByTagName('div');
         var show = document.getElementById("show");
         for (var i = 0; i < div.length; ++i) { 		//遍历div元素
@@ -21,10 +23,12 @@ function bubble() {
                 }
             })(i);
         }
-}
-window.onload = bubble;
+    }
+    window.onload = bubble;
 </script>
+
 </head>
+
 <body>
 <div class="div-1">div-1
     <div class="div-2">div-2
@@ -37,4 +41,5 @@ window.onload = bubble;
 </div>
 <p id="show"></p>
 </body>
+
 </html>

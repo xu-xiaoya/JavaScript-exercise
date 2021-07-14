@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>在当前显示区范围内实现点不到的小方块</title>
+	<style>
+		div {
+			position: fixed;
+			top:80px;
+			left:100px;
+			width: 100px;
+			height: 100px;
+			background-image: url(images/mage.png);
+			background-size: 100%;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="pop"></div>
+	<script>
+		var pop=document.getElementById("pop");
+		pop.onclick=function(e){
+			console.log(e.screenX, e.screenY)
+			console.log(e.clientX, e.clientY)
+			console.log(e.offsetX, e.offsetY)
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+a{
+    position:fixed;
+    right:0;
+    bottom:150px;
+}
+</style>
+</head>
+
+<body style="height:2000px">
+<!-- 法一： 
+    <a id="a1" href="javascript:;">返回顶部</a>  
+-->
+
+<!--希望:点a可返回顶部，但是不要在地址栏结尾加#top-->
+<a id="a1" href="#top">返回顶部</a>
+
+<script>
+    var a1=document.getElementById("a1");
+    a1.onclick=function(e) {
+      //     滚动  到 0位置
+      window.scrollTo(0,0);
+      e.preventDefault();//阻止默认行为，适用于所有元素
+    }
+</script>
+</body>
+</html>
