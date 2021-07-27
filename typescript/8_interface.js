@@ -16,4 +16,4 @@ var MyStudent = /** @class */ (function () {
 }());
 var erya2 = new MyStudent('ERYA', 15, '初三三班');
 console.log(erya2);
-erya2.intr();
+erya.intr();
