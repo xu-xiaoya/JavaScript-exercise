@@ -12,3 +12,6 @@ console.log(undefined == null);//true
 console.log(undefined === null);//false
 
 console.log(NaN == NaN);//false
+
+// 引用类型比较的是地址
+[1,2,3].splice(1,1,1) == [2];//false，地址不同

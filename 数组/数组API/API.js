@@ -25,7 +25,10 @@ var arr1 = ['a','aa','aaa'];
 var arr2 = ['b','bb','bbb'];
 var arr3 = ['c','cc','ccc'];
 console.log( arr1.concat(arr2,arr3) );//['a', 'aa', 'aaa','b', 'bb', 'bbb','c', 'cc', 'ccc']
-
+// 拓展运算符合并
+function concat(arr1, arr2) {
+  return [...arr1, ...arr2, ...arr3];
+}
 
 
 //slice截取数组元素  

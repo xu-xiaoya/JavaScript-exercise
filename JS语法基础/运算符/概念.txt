@@ -6,3 +6,8 @@
 tip:
 整个运算符都会强制转换为数值
 正负号具有隐式转换 +'3"=3;  5+ -'1'=4;
+
+
+JavaScript中有5种简单数据类型（也称为基本数据类型) 
+Undefined、Null、Boolean、Number和String
+还有1种复杂数据类型——Obiect

@@ -19,3 +19,8 @@ function o(a,b) {
     return a*b;
 }
 console.log(f.apply(o,[3,4]));    //7
+
+
+// 求最大值，传a
+var a = [1,4,5,2,9];
+Math.max.apply(null,a);
