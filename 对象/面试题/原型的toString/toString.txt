@@ -1,0 +1,14 @@
+引用类型的父级Object原型方法中存在toString()方法，
+toString方法可判断引用类型的具体类型
+
+返回值：[object 类型名]
+
+例：
+var a = [1,2,3];
+a.toString():[object Array]
+
+var b = {
+    a:"1",
+    b:"string"
+}
+b.toString():[object object]

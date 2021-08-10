@@ -19,7 +19,7 @@ console.log(arr);
 
 
 
-//concat拼接多个数组
+//concat拼接多个数组（万能胶，打散）
 //concat(arr2,arr3...) arr2,arr3表示要拼接的数组，返回拼接后的数组是一个新的数组
 var arr1 = ['a','aa','aaa'];
 var arr2 = ['b','bb','bbb'];
@@ -29,6 +29,11 @@ console.log( arr1.concat(arr2,arr3) );//['a', 'aa', 'aaa','b', 'bb', 'bbb','c', 
 function concat(arr1, arr2) {
   return [...arr1, ...arr2, ...arr3];
 }
+// []:new Array 创建一个新数组
+[].concat(1,2,3);
+// 打散第一个参数，再拼接第二个参数
+[].concat([1,2,3],4);
+
 
 
 //slice截取数组元素  
@@ -36,9 +41,14 @@ function concat(arr1, arr2) {
 //只有一个参数，截到最后
 //下标是负数表示倒数
 var arr = ['a','aa','aaa','b','bb','bbb','c','cc','ccc'];
+// arr.slice(starti) 选取数组中指定开始位置一直到结尾
 console.log( arr.slice(2) );      //['aaa', 'b', 'bb', 'bbb', 'c', 'cc', 'ccc']
+// arr.slice(starti,endi+1)
 console.log( arr.slice(2,4) );    //['aaa', 'b']
 console.log( arr.slice(-3,-1) );  //['c', 'cc']
+// 复制整个数组
+var arr2 = arr.slice();
+
 
 //练习：创建数组包含a~f，每个字母是一个元素；分别截取bc，ef；最后再将这两组拼接成一个新数组。
 var arr = ['a','b','c','d','e','f'];
