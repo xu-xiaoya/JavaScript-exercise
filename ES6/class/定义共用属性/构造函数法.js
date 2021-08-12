@@ -18,8 +18,9 @@ class Student{
 //创建两个学生: 
 var erya = new Student("erya", 5);
 var yuanyuan = new Student("yuanyuan", 6);
-console.log(erya, yuanyuan);
+console.log(erya);        //Student { sname: 'erya', sage: 5 }
+console.log(yuanyuanya);  //Student { sname: 'yuanyuan', sage: 6 }
 
 //过了一年，两人共同升了一级
 Student.prototype.className="幼儿园中班"
-console.log(erya.className, yuanyuan.className);
+console.log(erya.className, yuanyuan.className);  //幼儿园中班 幼儿园中班

@@ -2,22 +2,22 @@
 function erya() { //异步
     // 用new Promise(function(door)) {……}包裹原来的异步函数代码
     //         格子间             门
-    return new Promise(function(door){
+    return new Promise(function(resolve){
         console.log(`erya起跑！`);
         setTimeout(() => {   
             console.log(`erya到达终点！`);
             // 在原异步函数的最后一行代码，主动调用door开门
-            door();//自动执行.then()中串联的下一项任务
+            resolve();//自动执行.then()中串联的下一项任务
         }, 6000);
     })
 }
 
 function yuan() { //异步
-    return new Promise(function(door){
+    return new Promise(function(resolve){
         console.log(`yuan起跑！`);
         setTimeout(() => {   
             console.log(`yuan到达终点！`);
-            door();
+            resolve();
         }, 4000);
     })
 }

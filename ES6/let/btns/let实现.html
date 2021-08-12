@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style></style>
+</head>
+
+<body>
+<!-- 页面上五个完全相同的按钮，点哪个按钮，让按钮弹出自己是第几个 -->
+<button>click me!</button>
+<button>click me!</button>
+<button>click me!</button>
+<button>click me!</button>
+<button>click me!</button>
+
+<script>
+var btns = document.getElementsByTagName("button");
+// 使用let可以直接实现
+// let底层原理就是匿名函数自调，闭包
+for (let i = 0; i < btns.length; i++) {
+    // 当let碰上for：匿名函数自调擅自加工加入了循环变量，此处为i
+    // (function(i){ 
+        btns[i].onclick = function() {  
+            console.log(i);
+        }
+    // })(i); 
+}
+</script>
+</body>
+
+</html>

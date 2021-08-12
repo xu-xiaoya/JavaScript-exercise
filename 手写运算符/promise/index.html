@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style></style>
+    <script src = "promise.js"></script>
+</head>
+<script>
+    const p = new Promise((resolve, reject)=> {
+        resolve('success');
+        // reject('err');
+        // console.log('promise');
+    })
+    p.then(
+        value=>{
+            console.log('value: ' + value);
+        }, 
+        err=>{
+            console.log('err: ' + err);
+        }
+    )
+
+    p.then(
+        value=>{
+            console.log('value1: ' + value);
+        }, 
+        err=>{
+            console.log('err2: ' + err);
+        }
+    )
+    // console.log('sync'); 
+    
+</script>
+<body>
+
+</body>
+
+</html>

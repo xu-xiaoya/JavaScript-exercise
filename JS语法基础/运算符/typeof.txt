@@ -5,3 +5,6 @@ string    字符串
 number    数值(整形和浮点)
 object    对象或null
 function  函数
+symbol    独一无二的值
+    1.作为属性名
+    由于每一个 Symbol 的值都是不相等的，所以 Symbol 作为对象的属性名，可以保证属性不重名。
