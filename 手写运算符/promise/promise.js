@@ -53,11 +53,12 @@ class Promise {
         }
     } 
 
-
+    // 原型对象: 直接放在class{}内的方法
     then(onFulfilled, onRejected) {
         // onFulfilled 成功的处理函数
         // onRejected 失败的处理函数
         if (this.status === RESOLVE) {
+            // 放进微队列
             queueMicrotask(()=>{
                 onFulfilled(this.value);
             })
@@ -71,11 +72,15 @@ class Promise {
 
         if (this.status === PENDING) {
             this.onFulfilledCallback.push(()=>{
-                onFulfilled(this.value);
+                queueMicrotask(()=>{
+                    onFulfilled(this.value);
+                })
             });
             this.onRejectedCallback.push(()=>{
-                onRejected(this.reason);
-            })
+                queueMicrotask(()=>{
+                    onRejected(this.reason);
+                })
+            });
         }   
     }
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style></style>
+    <script src = "promise1.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+    const p = new myPromise1((resolve, reject)=>{
+        // console.log('nihao')
+        
+        setTimeout(()=>{
+            resolve('nihao');
+        },1000)
+        
+        
+        // reject('err');
+        
+        // a();
+    })
+    p.then(
+        (value)=>{
+            console.log('value: ' + value);
+            setTimeout(()=>{
+                console.log('settime1')
+            },2000)
+        },
+        (reason)=>{
+            console.log('reason: ' + reason);
+        }
+    )
+    p.then(
+        (value)=>{
+            console.log('value1: ' + value);
+            setTimeout(()=>{
+                console.log('settime2')
+            },3000)
+        },
+        (reason)=>{
+            console.log('reason2: ' + reason);
+        }
+    )
+</script>
+</html>

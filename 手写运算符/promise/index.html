@@ -8,12 +8,21 @@
 </head>
 <script>
     const p = new Promise((resolve, reject)=> {
-        resolve('success');
+        console.log(1)
+        setTimeout(()=>{
+            resolve('success');
+        }, 1000)
+        
+        
         // reject('err');
         // console.log('promise');
+        // a()
     })
     p.then(
         value=>{
+            // setTimeout(()=>{
+            //     console.log('settime1')
+            // },1000)
             console.log('value: ' + value);
         }, 
         err=>{
